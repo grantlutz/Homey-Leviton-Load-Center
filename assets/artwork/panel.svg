@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 480">
+  <!-- Cabinet -->
+  <rect x="20" y="20" width="360" height="440" rx="16" fill="#D8DDE3" stroke="#9AA3AD" stroke-width="4"/>
+  <!-- Inner bezel -->
+  <rect x="50" y="50" width="300" height="380" rx="8" fill="#F5F7F9" stroke="#C9CFD6" stroke-width="3"/>
+  <!-- Bezel screws -->
+  <circle cx="66" cy="66" r="6" fill="#9AA3AD"/>
+  <circle cx="334" cy="66" r="6" fill="#9AA3AD"/>
+  <circle cx="66" cy="414" r="6" fill="#9AA3AD"/>
+  <circle cx="334" cy="414" r="6" fill="#9AA3AD"/>
+  <!-- Main breaker -->
+  <rect x="160" y="68" width="80" height="38" rx="5" fill="#E8EBEF" stroke="#9AA3AD" stroke-width="3"/>
+  <rect x="185" y="76" width="30" height="22" rx="4" fill="#232A63"/>
+  <!-- Dead front opening -->
+  <rect x="108" y="122" width="184" height="272" rx="8" fill="#232A63"/>
+  <!-- Left column breakers (toggles toward center spine) -->
+  <g>
+    <rect x="118" y="134" width="72" height="26" rx="5" fill="#F5F7F9"/>
+    <rect x="170" y="140" width="14" height="14" rx="3" fill="#232A63"/>
+    <rect x="118" y="170" width="72" height="26" rx="5" fill="#F5F7F9"/>
+    <rect x="170" y="176" width="14" height="14" rx="3" fill="#232A63"/>
+    <rect x="118" y="206" width="72" height="26" rx="5" fill="#F5F7F9"/>
+    <rect x="170" y="212" width="14" height="14" rx="3" fill="#8DC63F"/>
+    <rect x="118" y="242" width="72" height="26" rx="5" fill="#F5F7F9"/>
+    <rect x="170" y="248" width="14" height="14" rx="3" fill="#232A63"/>
+    <rect x="118" y="278" width="72" height="26" rx="5" fill="#F5F7F9"/>
+    <rect x="170" y="284" width="14" height="14" rx="3" fill="#232A63"/>
+    <rect x="118" y="314" width="72" height="26" rx="5" fill="#F5F7F9"/>
+    <rect x="170" y="320" width="14" height="14" rx="3" fill="#232A63"/>
+    <rect x="118" y="350" width="72" height="26" rx="5" fill="#F5F7F9"/>
+    <rect x="170" y="356" width="14" height="14" rx="3" fill="#232A63"/>
+  </g>
+  <!-- Right column breakers -->
+  <g>
+    <rect x="210" y="134" width="72" height="26" rx="5" fill="#F5F7F9"/>
+    <rect x="216" y="140" width="14" height="14" rx="3" fill="#232A63"/>
+    <rect x="210" y="170" width="72" height="26" rx="5" fill="#F5F7F9"/>
+    <rect x="216" y="176" width="14" height="14" rx="3" fill="#232A63"/>
+    <rect x="210" y="206" width="72" height="26" rx="5" fill="#F5F7F9"/>
+    <rect x="216" y="212" width="14" height="14" rx="3" fill="#232A63"/>
+    <rect x="210" y="242" width="72" height="26" rx="5" fill="#F5F7F9"/>
+    <rect x="216" y="248" width="14" height="14" rx="3" fill="#8DC63F"/>
+    <rect x="210" y="278" width="72" height="26" rx="5" fill="#F5F7F9"/>
+    <rect x="216" y="284" width="14" height="14" rx="3" fill="#232A63"/>
+    <rect x="210" y="314" width="72" height="26" rx="5" fill="#F5F7F9"/>
+    <rect x="216" y="320" width="14" height="14" rx="3" fill="#232A63"/>
+    <rect x="210" y="350" width="72" height="26" rx="5" fill="#F5F7F9"/>
+    <rect x="216" y="356" width="14" height="14" rx="3" fill="#232A63"/>
+  </g>
+  <!-- Status LED on bezel -->
+  <circle cx="200" cy="412" r="7" fill="#8DC63F"/>
+</svg>

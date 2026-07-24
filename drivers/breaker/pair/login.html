@@ -1,0 +1,99 @@
+<style>
+  .lv-wrap { max-width: 360px; margin: 0 auto; padding: 8px; font-family: -apple-system, sans-serif; }
+  .lv-field { margin-bottom: 14px; }
+  .lv-field label { display: block; font-size: 13px; margin-bottom: 4px; color: #555; }
+  .lv-field input {
+    width: 100%; box-sizing: border-box; padding: 10px; font-size: 15px;
+    border: 1px solid #ccc; border-radius: 8px;
+  }
+  .lv-hidden { display: none; }
+  .lv-error { color: #c0392b; font-size: 13px; margin: 8px 0; min-height: 16px; }
+  .lv-btn {
+    width: 100%; padding: 12px; font-size: 15px; font-weight: 600; color: #fff;
+    background: #0098DB; border: none; border-radius: 8px; cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .lv-btn:disabled { background: #b8bec4; cursor: default; }
+  .lv-hint { font-size: 12px; color: #888; margin-top: 12px; text-align: center; }
+</style>
+
+<div class="lv-wrap">
+  <div class="lv-field">
+    <label data-i18n="pair.email">My Leviton e-mail</label>
+    <input id="lv-email" type="email" autocomplete="username" placeholder="you@example.com" />
+  </div>
+  <div class="lv-field">
+    <label data-i18n="pair.password">Password</label>
+    <input id="lv-password" type="password" autocomplete="current-password" />
+  </div>
+  <div id="lv-code-field" class="lv-field lv-hidden">
+    <label data-i18n="pair.code">Verification code (2FA)</label>
+    <input id="lv-code" type="text" inputmode="numeric" autocomplete="one-time-code" placeholder="123456" />
+  </div>
+
+  <div id="lv-error" class="lv-error"></div>
+  <button id="lv-submit" class="lv-btn" data-i18n="pair.signin" disabled>Sign in</button>
+  <div class="lv-hint">Your credentials are sent only to Leviton's cloud and stored on your Homey.</div>
+</div>
+
+<script type="application/javascript">
+  const emailEl = document.getElementById('lv-email');
+  const passEl = document.getElementById('lv-password');
+  const codeField = document.getElementById('lv-code-field');
+  const codeEl = document.getElementById('lv-code');
+  const errEl = document.getElementById('lv-error');
+  const btn = document.getElementById('lv-submit');
+  const btnLabel = btn.textContent;
+  let needCode = false;
+  let busy = false;
+
+  function setError(msg) { errEl.textContent = msg || ''; }
+
+  function formComplete() {
+    return emailEl.value.trim() && passEl.value && (!needCode || codeEl.value.trim());
+  }
+
+  function refreshButton() {
+    btn.disabled = busy || !formComplete();
+    btn.textContent = busy ? 'Signing in…' : btnLabel;
+  }
+
+  function submit() {
+    if (busy || !formComplete()) return;
+    setError('');
+    busy = true;
+    refreshButton();
+    const payload = { username: emailEl.value.trim(), password: passEl.value };
+    if (needCode) payload.code = codeEl.value.trim();
+
+    Homey.emit('login', payload, (err, result) => {
+      busy = false;
+      refreshButton();
+      if (err) {
+        setError(typeof err === 'string' ? err : (err.message || 'Login failed'));
+        return;
+      }
+      if (result === 'twofactor') {
+        needCode = true;
+        codeField.classList.remove('lv-hidden');
+        setError('Enter the verification code sent to you.');
+        refreshButton();
+        codeEl.focus();
+        return;
+      }
+      // 'repaired' comes from onRepair sessions, which have no next view.
+      if (result === 'repaired') Homey.done();
+      else Homey.nextView();
+    });
+  }
+
+  btn.addEventListener('click', submit);
+  [emailEl, passEl, codeEl].forEach((el) => {
+    el.addEventListener('input', refreshButton);
+    el.addEventListener('keydown', (e) => { if (e.key === 'Enter') submit(); });
+  });
+
+  refreshButton();
+  Homey.setTitle('Sign in to My Leviton');
+  Homey.showView && Homey.ready && Homey.ready();
+</script>

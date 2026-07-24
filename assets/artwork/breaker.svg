@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <!-- Panel bus stab (bottom) -->
+  <rect x="178" y="344" width="44" height="34" rx="6" fill="#9AA3AD"/>
+  <!-- Wire terminal lug (top) -->
+  <rect x="150" y="22" width="100" height="30" rx="6" fill="#9AA3AD"/>
+  <rect x="164" y="30" width="72" height="14" rx="4" fill="#5A6470"/>
+  <!-- Breaker body -->
+  <rect x="118" y="48" width="164" height="304" rx="14" fill="#F5F7F9" stroke="#9AA3AD" stroke-width="6"/>
+  <!-- Switch window -->
+  <rect x="144" y="106" width="112" height="130" rx="10" fill="#232A63"/>
+  <!-- Handle (ON, up position) -->
+  <rect x="156" y="116" width="88" height="46" rx="8" fill="#E8EBEF" stroke="#9AA3AD" stroke-width="3"/>
+  <rect x="184" y="128" width="32" height="10" rx="5" fill="#232A63"/>
+  <!-- ON indicator strip inside window -->
+  <rect x="166" y="176" width="68" height="12" rx="6" fill="#8DC63F"/>
+  <!-- Rating stripes -->
+  <rect x="162" y="262" width="76" height="9" rx="4.5" fill="#C9CFD6"/>
+  <rect x="162" y="280" width="52" height="9" rx="4.5" fill="#C9CFD6"/>
+  <!-- Smart LED + test button -->
+  <circle cx="178" cy="322" r="11" fill="#8DC63F"/>
+  <rect x="212" y="310" width="26" height="24" rx="6" fill="#232A63"/>
+</svg>

@@ -1,0 +1,22 @@
+[
+  {
+    "type": "group",
+    "label": { "en": "Load Center" },
+    "children": [
+      { "id": "model", "type": "label", "label": { "en": "Model" }, "value": "-" },
+      { "id": "serial", "type": "label", "label": { "en": "Serial number" }, "value": "-" },
+      { "id": "firmware", "type": "label", "label": { "en": "Firmware" }, "value": "-" },
+      { "id": "firmware_update", "type": "label", "label": { "en": "Firmware update" }, "value": "-" },
+      { "id": "residence", "type": "label", "label": { "en": "Residence ID" }, "value": "-" }
+    ]
+  },
+  {
+    "type": "group",
+    "label": { "en": "Network" },
+    "children": [
+      { "id": "ip", "type": "label", "label": { "en": "IP address" }, "value": "-" },
+      { "id": "wifi_ssid", "type": "label", "label": { "en": "Wi-Fi SSID" }, "value": "-" },
+      { "id": "wifi_rssi", "type": "label", "label": { "en": "Wi-Fi signal (dBm)" }, "value": "-" }
+    ]
+  }
+]

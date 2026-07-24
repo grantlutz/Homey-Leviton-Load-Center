@@ -1,0 +1,25 @@
+{
+  "triggers": [
+    {
+      "id": "panel_went_offline",
+      "title": { "en": "Load center went offline" }
+    },
+    {
+      "id": "panel_came_online",
+      "title": { "en": "Load center came back online" }
+    }
+  ],
+  "conditions": [
+    {
+      "id": "panel_is_online",
+      "title": { "en": "Load center !{{is|is not}} online" }
+    }
+  ],
+  "actions": [
+    {
+      "id": "identify_panel",
+      "title": { "en": "Blink hub locate LED" },
+      "hint": { "en": "Blinks the LWHEM hub's LED for ~10 seconds. Not supported on LDATA panels." }
+    }
+  ]
+}

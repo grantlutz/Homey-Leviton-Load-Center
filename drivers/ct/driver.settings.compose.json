@@ -1,0 +1,11 @@
+[
+  {
+    "type": "group",
+    "label": { "en": "Current Transformer" },
+    "children": [
+      { "id": "usage_type", "type": "label", "label": { "en": "Usage type" }, "value": "-" },
+      { "id": "channel", "type": "label", "label": { "en": "Channel" }, "value": "-" },
+      { "id": "serial", "type": "label", "label": { "en": "Serial number" }, "value": "-" }
+    ]
+  }
+]

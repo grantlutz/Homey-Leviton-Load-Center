@@ -1,0 +1,24 @@
+[
+  {
+    "type": "group",
+    "label": { "en": "Breaker" },
+    "children": [
+      { "id": "model", "type": "label", "label": { "en": "Model" }, "value": "-" },
+      { "id": "serial", "type": "label", "label": { "en": "Serial number" }, "value": "-" },
+      { "id": "rating", "type": "label", "label": { "en": "Rating (A)" }, "value": "-" },
+      { "id": "poles", "type": "label", "label": { "en": "Poles" }, "value": "-" },
+      { "id": "position", "type": "label", "label": { "en": "Panel position" }, "value": "-" },
+      { "id": "leg", "type": "label", "label": { "en": "Split-phase leg" }, "value": "-" }
+    ]
+  },
+  {
+    "type": "group",
+    "label": { "en": "Diagnostics" },
+    "children": [
+      { "id": "firmware_ble", "type": "label", "label": { "en": "Firmware (BLE)" }, "value": "-" },
+      { "id": "firmware_meter", "type": "label", "label": { "en": "Firmware (meter)" }, "value": "-" },
+      { "id": "firmware_protect", "type": "label", "label": { "en": "Firmware (protection)" }, "value": "-" },
+      { "id": "ble_rssi", "type": "label", "label": { "en": "BLE signal (dBm)" }, "value": "-" }
+    ]
+  }
+]

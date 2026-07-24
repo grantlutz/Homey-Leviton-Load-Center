@@ -1,0 +1,13 @@
+{
+  "type": "number",
+  "title": { "en": "Frequency" },
+  "uiComponent": "sensor",
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "units": { "en": "Hz" },
+  "decimals": 2,
+  "min": 0,
+  "max": 100,
+  "icon": "/assets/measure_frequency.svg"
+}

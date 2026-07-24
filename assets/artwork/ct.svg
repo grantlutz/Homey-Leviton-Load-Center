@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <!-- Wire passing through the clamp -->
+  <rect x="183" y="12" width="34" height="376" rx="17" fill="#9AA3AD"/>
+  <rect x="191" y="12" width="8" height="376" fill="#C9CFD6"/>
+  <!-- Clamp ring -->
+  <circle cx="200" cy="200" r="118" fill="none" stroke="#232A63" stroke-width="56"/>
+  <!-- Hinge -->
+  <rect x="60" y="176" width="44" height="48" rx="10" fill="#1A2050"/>
+  <!-- Latch -->
+  <rect x="298" y="178" width="46" height="44" rx="9" fill="#1A2050"/>
+  <rect x="330" y="188" width="26" height="24" rx="6" fill="#8DC63F"/>
+  <!-- Status LED on ring -->
+  <circle cx="200" cy="310" r="10" fill="#8DC63F"/>
+</svg>

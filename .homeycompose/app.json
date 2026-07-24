@@ -1,0 +1,111 @@
+{
+  "id": "com.leviton.loadcenter",
+  "version": "1.0.1",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Leviton Load Center"
+  },
+  "description": {
+    "en": "Monitor and control Leviton Smart Load Center circuit breakers — per-circuit power, current and energy, remote on/off, and trip/fault alarms — via the My Leviton cloud."
+  },
+  "category": [
+    "energy"
+  ],
+  "brandColor": "#0098DB",
+  "tags": {
+    "en": [
+      "leviton",
+      "breaker",
+      "load center",
+      "energy",
+      "electricity",
+      "circuit",
+      "LWHEM",
+      "LDATA"
+    ]
+  },
+  "author": {
+    "name": "Grant Lutz",
+    "email": "grant.lutz@gmail.com"
+  },
+  "contributors": {
+    "developers": [
+      {
+        "name": "gtxaspec (original Home Assistant integration & aioleviton, MIT)"
+      }
+    ]
+  },
+  "source": "https://github.com/grantlutz/Homey-Leviton-Load-Center",
+  "support": "https://github.com/grantlutz/Homey-Leviton-Load-Center/issues",
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "settings": [
+    {
+      "type": "group",
+      "children": [
+        {
+          "id": "read_only",
+          "type": "checkbox",
+          "value": false,
+          "title": {
+            "en": "Read-only mode (disable all breaker control)"
+          }
+        },
+        {
+          "id": "calculated_current",
+          "type": "checkbox",
+          "value": false,
+          "title": {
+            "en": "Calculate current from power ÷ voltage"
+          }
+        },
+        {
+          "id": "voltage_208",
+          "type": "checkbox",
+          "value": false,
+          "title": {
+            "en": "208V system (commercial split-phase)"
+          }
+        },
+        {
+          "id": "hide_dummy",
+          "type": "checkbox",
+          "value": false,
+          "title": {
+            "en": "Hide non-smart / placeholder breakers"
+          }
+        },
+        {
+          "id": "show_energy_import",
+          "type": "checkbox",
+          "value": false,
+          "title": {
+            "en": "Expose imported-energy meters"
+          }
+        },
+        {
+          "id": "stagger_delay",
+          "type": "number",
+          "value": 2,
+          "min": 1,
+          "max": 10,
+          "step": 1,
+          "title": {
+            "en": "Bulk operation stagger delay (seconds)"
+          }
+        }
+      ],
+      "title": {
+        "en": "Behavior"
+      }
+    }
+  ]
+}

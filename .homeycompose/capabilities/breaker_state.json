@@ -1,0 +1,23 @@
+{
+  "type": "enum",
+  "title": { "en": "Breaker state" },
+  "uiComponent": "sensor",
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "icon": "/assets/breaker_state.svg",
+  "values": [
+    { "id": "on", "title": { "en": "On" } },
+    { "id": "off", "title": { "en": "Off" } },
+    { "id": "connecting", "title": { "en": "Connecting" } },
+    { "id": "offline", "title": { "en": "Offline" } },
+    { "id": "software_trip", "title": { "en": "Remotely tripped" } },
+    { "id": "gfci_fault", "title": { "en": "Tripped — Ground fault (GFCI)" } },
+    { "id": "afci_miswire", "title": { "en": "AFCI miswire" } },
+    { "id": "afci_fault", "title": { "en": "Tripped — Arc fault (AFCI)" } },
+    { "id": "overcurrent_trip", "title": { "en": "Tripped — Overcurrent" } },
+    { "id": "overload_trip", "title": { "en": "Tripped — Overload" } },
+    { "id": "short_circuit_trip", "title": { "en": "Tripped — Short circuit" } },
+    { "id": "upstream_fault", "title": { "en": "Upstream fault" } }
+  ]
+}

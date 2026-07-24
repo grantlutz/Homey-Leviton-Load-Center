@@ -1,0 +1,103 @@
+{
+  "triggers": [
+    {
+      "id": "breaker_tripped",
+      "title": { "en": "A breaker tripped" },
+      "titleFormatted": { "en": "This breaker tripped (reason [[reason]])" },
+      "hint": { "en": "Fires when this breaker enters any tripped/fault state." },
+      "tokens": [
+        { "name": "reason", "type": "string", "title": { "en": "Trip reason" }, "example": { "en": "GFCI fault" } },
+        { "name": "power", "type": "number", "title": { "en": "Power (W)" }, "example": 0 }
+      ]
+    },
+    {
+      "id": "power_rose_above",
+      "title": { "en": "Power rose above" },
+      "titleFormatted": { "en": "Power rose above [[watts]] W" },
+      "args": [
+        { "name": "watts", "type": "number", "min": 0, "step": 1, "placeholder": { "en": "1500" } }
+      ]
+    },
+    {
+      "id": "power_dropped_below",
+      "title": { "en": "Power dropped below" },
+      "titleFormatted": { "en": "Power dropped below [[watts]] W" },
+      "args": [
+        { "name": "watts", "type": "number", "min": 0, "step": 1, "placeholder": { "en": "50" } }
+      ]
+    },
+    {
+      "id": "current_rose_above",
+      "title": { "en": "Current rose above" },
+      "titleFormatted": { "en": "Current rose above [[amps]] A" },
+      "hint": { "en": "Useful for early overload warnings — e.g. 80% of the breaker rating." },
+      "args": [
+        { "name": "amps", "type": "number", "min": 0, "step": 0.5, "placeholder": { "en": "12" } }
+      ]
+    },
+    {
+      "id": "current_dropped_below",
+      "title": { "en": "Current dropped below" },
+      "titleFormatted": { "en": "Current dropped below [[amps]] A" },
+      "args": [
+        { "name": "amps", "type": "number", "min": 0, "step": 0.5, "placeholder": { "en": "1" } }
+      ]
+    },
+    {
+      "id": "breaker_went_offline",
+      "title": { "en": "Breaker went offline" }
+    },
+    {
+      "id": "breaker_came_online",
+      "title": { "en": "Breaker came back online" }
+    }
+  ],
+  "conditions": [
+    {
+      "id": "breaker_is_on",
+      "title": { "en": "Breaker !{{is|is not}} on" }
+    },
+    {
+      "id": "breaker_state_is",
+      "title": { "en": "Breaker state !{{is|is not}} [[state]]" },
+      "titleFormatted": { "en": "Breaker state !{{is|is not}} [[state]]" },
+      "args": [
+        {
+          "name": "state",
+          "type": "dropdown",
+          "values": [
+            { "id": "on", "title": { "en": "On" } },
+            { "id": "off", "title": { "en": "Off" } },
+            { "id": "gfci_fault", "title": { "en": "Tripped — Ground fault (GFCI)" } },
+            { "id": "afci_fault", "title": { "en": "Tripped — Arc fault (AFCI)" } },
+            { "id": "overload_trip", "title": { "en": "Tripped — Overload" } },
+            { "id": "overcurrent_trip", "title": { "en": "Tripped — Overcurrent" } },
+            { "id": "short_circuit_trip", "title": { "en": "Tripped — Short circuit" } },
+            { "id": "offline", "title": { "en": "Offline" } }
+          ]
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "id": "turn_on",
+      "title": { "en": "Turn breaker on" },
+      "hint": { "en": "Remotely closes a Gen-2 breaker. No effect on Gen-1 (trip-only) breakers." }
+    },
+    {
+      "id": "turn_off",
+      "title": { "en": "Turn breaker off" },
+      "hint": { "en": "Remotely trips the breaker off." }
+    },
+    {
+      "id": "trip",
+      "title": { "en": "Trip breaker" },
+      "hint": { "en": "One-way remote trip. Gen-1 breakers cannot be re-closed remotely." }
+    },
+    {
+      "id": "identify",
+      "title": { "en": "Blink locate LED" }
+    }
+  ]
+}

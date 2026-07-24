@@ -1,0 +1,14 @@
+{
+  "type": "number",
+  "title": { "en": "Breaker rating" },
+  "uiComponent": "sensor",
+  "getable": true,
+  "setable": false,
+  "insights": false,
+  "units": { "en": "A" },
+  "min": 0,
+  "max": 200,
+  "step": 1,
+  "decimals": 0,
+  "icon": "/assets/breaker_rating.svg"
+}

@@ -1,0 +1,1172 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "com.leviton.loadcenter",
+  "version": "1.0.1",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Leviton Load Center"
+  },
+  "description": {
+    "en": "Monitor and control Leviton Smart Load Center circuit breakers — per-circuit power, current and energy, remote on/off, and trip/fault alarms — via the My Leviton cloud."
+  },
+  "category": [
+    "energy"
+  ],
+  "brandColor": "#0098DB",
+  "tags": {
+    "en": [
+      "leviton",
+      "breaker",
+      "load center",
+      "energy",
+      "electricity",
+      "circuit",
+      "LWHEM",
+      "LDATA"
+    ]
+  },
+  "author": {
+    "name": "Grant Lutz",
+    "email": "grant.lutz@gmail.com"
+  },
+  "contributors": {
+    "developers": [
+      {
+        "name": "gtxaspec (original Home Assistant integration & aioleviton, MIT)"
+      }
+    ]
+  },
+  "source": "https://github.com/grantlutz/Homey-Leviton-Load-Center",
+  "support": "https://github.com/grantlutz/Homey-Leviton-Load-Center/issues",
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "settings": [
+    {
+      "type": "group",
+      "children": [
+        {
+          "id": "read_only",
+          "type": "checkbox",
+          "value": false,
+          "title": {
+            "en": "Read-only mode (disable all breaker control)"
+          }
+        },
+        {
+          "id": "calculated_current",
+          "type": "checkbox",
+          "value": false,
+          "title": {
+            "en": "Calculate current from power ÷ voltage"
+          }
+        },
+        {
+          "id": "voltage_208",
+          "type": "checkbox",
+          "value": false,
+          "title": {
+            "en": "208V system (commercial split-phase)"
+          }
+        },
+        {
+          "id": "hide_dummy",
+          "type": "checkbox",
+          "value": false,
+          "title": {
+            "en": "Hide non-smart / placeholder breakers"
+          }
+        },
+        {
+          "id": "show_energy_import",
+          "type": "checkbox",
+          "value": false,
+          "title": {
+            "en": "Expose imported-energy meters"
+          }
+        },
+        {
+          "id": "stagger_delay",
+          "type": "number",
+          "value": 2,
+          "min": 1,
+          "max": 10,
+          "step": 1,
+          "title": {
+            "en": "Bulk operation stagger delay (seconds)"
+          }
+        }
+      ],
+      "title": {
+        "en": "Behavior"
+      }
+    }
+  ],
+  "flow": {
+    "actions": [
+      {
+        "id": "all_off",
+        "title": {
+          "en": "Turn all breakers off"
+        },
+        "titleFormatted": {
+          "en": "Turn all breakers off on [[panel]]"
+        },
+        "hint": {
+          "en": "Staggered remote-off/trip of every controllable breaker on the selected load center."
+        },
+        "args": [
+          {
+            "name": "panel",
+            "type": "device",
+            "filter": "driver_id=panel"
+          }
+        ]
+      },
+      {
+        "id": "all_on",
+        "title": {
+          "en": "Turn all breakers on"
+        },
+        "titleFormatted": {
+          "en": "Turn all breakers on on [[panel]]"
+        },
+        "hint": {
+          "en": "Staggered remote-on of every Gen-2 controllable breaker on the selected load center."
+        },
+        "args": [
+          {
+            "name": "panel",
+            "type": "device",
+            "filter": "driver_id=panel"
+          }
+        ]
+      },
+      {
+        "id": "trip_all",
+        "title": {
+          "en": "Trip all breakers"
+        },
+        "titleFormatted": {
+          "en": "Trip all breakers on [[panel]]"
+        },
+        "hint": {
+          "en": "Staggered remote-trip of every smart breaker on the selected load center. Gen-1 breakers cannot be re-closed remotely."
+        },
+        "args": [
+          {
+            "name": "panel",
+            "type": "device",
+            "filter": "driver_id=panel"
+          }
+        ]
+      },
+      {
+        "id": "turn_on",
+        "title": {
+          "en": "Turn breaker on"
+        },
+        "hint": {
+          "en": "Remotely closes a Gen-2 breaker. No effect on Gen-1 (trip-only) breakers."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=breaker"
+          }
+        ]
+      },
+      {
+        "id": "turn_off",
+        "title": {
+          "en": "Turn breaker off"
+        },
+        "hint": {
+          "en": "Remotely trips the breaker off."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=breaker"
+          }
+        ]
+      },
+      {
+        "id": "trip",
+        "title": {
+          "en": "Trip breaker"
+        },
+        "hint": {
+          "en": "One-way remote trip. Gen-1 breakers cannot be re-closed remotely."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=breaker"
+          }
+        ]
+      },
+      {
+        "id": "identify",
+        "title": {
+          "en": "Blink locate LED"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=breaker"
+          }
+        ]
+      },
+      {
+        "id": "identify_panel",
+        "title": {
+          "en": "Blink hub locate LED"
+        },
+        "hint": {
+          "en": "Blinks the LWHEM hub's LED for ~10 seconds. Not supported on LDATA panels."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panel"
+          }
+        ]
+      }
+    ],
+    "triggers": [
+      {
+        "id": "breaker_tripped",
+        "title": {
+          "en": "A breaker tripped"
+        },
+        "titleFormatted": {
+          "en": "This breaker tripped (reason [[reason]])"
+        },
+        "hint": {
+          "en": "Fires when this breaker enters any tripped/fault state."
+        },
+        "tokens": [
+          {
+            "name": "reason",
+            "type": "string",
+            "title": {
+              "en": "Trip reason"
+            },
+            "example": {
+              "en": "GFCI fault"
+            }
+          },
+          {
+            "name": "power",
+            "type": "number",
+            "title": {
+              "en": "Power (W)"
+            },
+            "example": 0
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=breaker"
+          }
+        ]
+      },
+      {
+        "id": "power_rose_above",
+        "title": {
+          "en": "Power rose above"
+        },
+        "titleFormatted": {
+          "en": "Power rose above [[watts]] W"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=breaker"
+          },
+          {
+            "name": "watts",
+            "type": "number",
+            "min": 0,
+            "step": 1,
+            "placeholder": {
+              "en": "1500"
+            }
+          }
+        ]
+      },
+      {
+        "id": "power_dropped_below",
+        "title": {
+          "en": "Power dropped below"
+        },
+        "titleFormatted": {
+          "en": "Power dropped below [[watts]] W"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=breaker"
+          },
+          {
+            "name": "watts",
+            "type": "number",
+            "min": 0,
+            "step": 1,
+            "placeholder": {
+              "en": "50"
+            }
+          }
+        ]
+      },
+      {
+        "id": "current_rose_above",
+        "title": {
+          "en": "Current rose above"
+        },
+        "titleFormatted": {
+          "en": "Current rose above [[amps]] A"
+        },
+        "hint": {
+          "en": "Useful for early overload warnings — e.g. 80% of the breaker rating."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=breaker"
+          },
+          {
+            "name": "amps",
+            "type": "number",
+            "min": 0,
+            "step": 0.5,
+            "placeholder": {
+              "en": "12"
+            }
+          }
+        ]
+      },
+      {
+        "id": "current_dropped_below",
+        "title": {
+          "en": "Current dropped below"
+        },
+        "titleFormatted": {
+          "en": "Current dropped below [[amps]] A"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=breaker"
+          },
+          {
+            "name": "amps",
+            "type": "number",
+            "min": 0,
+            "step": 0.5,
+            "placeholder": {
+              "en": "1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "breaker_went_offline",
+        "title": {
+          "en": "Breaker went offline"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=breaker"
+          }
+        ]
+      },
+      {
+        "id": "breaker_came_online",
+        "title": {
+          "en": "Breaker came back online"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=breaker"
+          }
+        ]
+      },
+      {
+        "id": "panel_went_offline",
+        "title": {
+          "en": "Load center went offline"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panel"
+          }
+        ]
+      },
+      {
+        "id": "panel_came_online",
+        "title": {
+          "en": "Load center came back online"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panel"
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "id": "breaker_is_on",
+        "title": {
+          "en": "Breaker !{{is|is not}} on"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=breaker"
+          }
+        ]
+      },
+      {
+        "id": "breaker_state_is",
+        "title": {
+          "en": "Breaker state !{{is|is not}} [[state]]"
+        },
+        "titleFormatted": {
+          "en": "Breaker state !{{is|is not}} [[state]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=breaker"
+          },
+          {
+            "name": "state",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "on",
+                "title": {
+                  "en": "On"
+                }
+              },
+              {
+                "id": "off",
+                "title": {
+                  "en": "Off"
+                }
+              },
+              {
+                "id": "gfci_fault",
+                "title": {
+                  "en": "Tripped — Ground fault (GFCI)"
+                }
+              },
+              {
+                "id": "afci_fault",
+                "title": {
+                  "en": "Tripped — Arc fault (AFCI)"
+                }
+              },
+              {
+                "id": "overload_trip",
+                "title": {
+                  "en": "Tripped — Overload"
+                }
+              },
+              {
+                "id": "overcurrent_trip",
+                "title": {
+                  "en": "Tripped — Overcurrent"
+                }
+              },
+              {
+                "id": "short_circuit_trip",
+                "title": {
+                  "en": "Tripped — Short circuit"
+                }
+              },
+              {
+                "id": "offline",
+                "title": {
+                  "en": "Offline"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "panel_is_online",
+        "title": {
+          "en": "Load center !{{is|is not}} online"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=panel"
+          }
+        ]
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "Breaker"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "cloud"
+      ],
+      "capabilities": [
+        "measure_power",
+        "meter_power",
+        "measure_current",
+        "measure_voltage",
+        "breaker_state",
+        "breaker_rating",
+        "alarm_generic",
+        "alarm_gfci",
+        "alarm_afci"
+      ],
+      "capabilitiesOptions": {
+        "measure_power": {
+          "title": {
+            "en": "Power"
+          }
+        },
+        "meter_power": {
+          "title": {
+            "en": "Energy"
+          }
+        },
+        "measure_current": {
+          "title": {
+            "en": "Current"
+          }
+        },
+        "measure_voltage": {
+          "title": {
+            "en": "Voltage"
+          }
+        },
+        "alarm_generic": {
+          "title": {
+            "en": "Tripped"
+          }
+        }
+      },
+      "pair": [
+        {
+          "id": "login"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "login"
+        }
+      ],
+      "images": {
+        "small": "/drivers/breaker/assets/images/small.png",
+        "large": "/drivers/breaker/assets/images/large.png",
+        "xlarge": "/drivers/breaker/assets/images/xlarge.png"
+      },
+      "id": "breaker",
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Breaker"
+          },
+          "children": [
+            {
+              "id": "model",
+              "type": "label",
+              "label": {
+                "en": "Model"
+              },
+              "value": "-"
+            },
+            {
+              "id": "serial",
+              "type": "label",
+              "label": {
+                "en": "Serial number"
+              },
+              "value": "-"
+            },
+            {
+              "id": "rating",
+              "type": "label",
+              "label": {
+                "en": "Rating (A)"
+              },
+              "value": "-"
+            },
+            {
+              "id": "poles",
+              "type": "label",
+              "label": {
+                "en": "Poles"
+              },
+              "value": "-"
+            },
+            {
+              "id": "position",
+              "type": "label",
+              "label": {
+                "en": "Panel position"
+              },
+              "value": "-"
+            },
+            {
+              "id": "leg",
+              "type": "label",
+              "label": {
+                "en": "Split-phase leg"
+              },
+              "value": "-"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Diagnostics"
+          },
+          "children": [
+            {
+              "id": "firmware_ble",
+              "type": "label",
+              "label": {
+                "en": "Firmware (BLE)"
+              },
+              "value": "-"
+            },
+            {
+              "id": "firmware_meter",
+              "type": "label",
+              "label": {
+                "en": "Firmware (meter)"
+              },
+              "value": "-"
+            },
+            {
+              "id": "firmware_protect",
+              "type": "label",
+              "label": {
+                "en": "Firmware (protection)"
+              },
+              "value": "-"
+            },
+            {
+              "id": "ble_rssi",
+              "type": "label",
+              "label": {
+                "en": "BLE signal (dBm)"
+              },
+              "value": "-"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Current Transformer"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "cloud"
+      ],
+      "capabilities": [
+        "measure_power",
+        "meter_power",
+        "measure_current"
+      ],
+      "capabilitiesOptions": {
+        "measure_power": {
+          "title": {
+            "en": "Power"
+          }
+        },
+        "meter_power": {
+          "title": {
+            "en": "Energy"
+          }
+        },
+        "measure_current": {
+          "title": {
+            "en": "Current"
+          }
+        }
+      },
+      "pair": [
+        {
+          "id": "login"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "login"
+        }
+      ],
+      "images": {
+        "small": "/drivers/ct/assets/images/small.png",
+        "large": "/drivers/ct/assets/images/large.png",
+        "xlarge": "/drivers/ct/assets/images/xlarge.png"
+      },
+      "id": "ct",
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Current Transformer"
+          },
+          "children": [
+            {
+              "id": "usage_type",
+              "type": "label",
+              "label": {
+                "en": "Usage type"
+              },
+              "value": "-"
+            },
+            {
+              "id": "channel",
+              "type": "label",
+              "label": {
+                "en": "Channel"
+              },
+              "value": "-"
+            },
+            {
+              "id": "serial",
+              "type": "label",
+              "label": {
+                "en": "Serial number"
+              },
+              "value": "-"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Load Center"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "cloud"
+      ],
+      "capabilities": [
+        "measure_power",
+        "meter_power",
+        "measure_current",
+        "measure_voltage",
+        "measure_frequency",
+        "measure_voltage.leg1",
+        "measure_voltage.leg2",
+        "measure_power.leg1",
+        "measure_power.leg2",
+        "measure_current.leg1",
+        "measure_current.leg2",
+        "measure_frequency.leg1",
+        "measure_frequency.leg2"
+      ],
+      "capabilitiesOptions": {
+        "measure_power": {
+          "title": {
+            "en": "Total power"
+          }
+        },
+        "meter_power": {
+          "title": {
+            "en": "Total energy"
+          }
+        },
+        "measure_current": {
+          "title": {
+            "en": "Total current"
+          }
+        },
+        "measure_voltage": {
+          "title": {
+            "en": "Voltage (avg)"
+          }
+        },
+        "measure_voltage.leg1": {
+          "title": {
+            "en": "Voltage L1"
+          }
+        },
+        "measure_voltage.leg2": {
+          "title": {
+            "en": "Voltage L2"
+          }
+        },
+        "measure_power.leg1": {
+          "title": {
+            "en": "Power L1"
+          }
+        },
+        "measure_power.leg2": {
+          "title": {
+            "en": "Power L2"
+          }
+        },
+        "measure_current.leg1": {
+          "title": {
+            "en": "Current L1"
+          }
+        },
+        "measure_current.leg2": {
+          "title": {
+            "en": "Current L2"
+          }
+        },
+        "measure_frequency.leg1": {
+          "title": {
+            "en": "Frequency L1"
+          }
+        },
+        "measure_frequency.leg2": {
+          "title": {
+            "en": "Frequency L2"
+          }
+        }
+      },
+      "energy": {
+        "cumulative": true,
+        "cumulativeImportedCapability": "meter_power"
+      },
+      "pair": [
+        {
+          "id": "login"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "login"
+        }
+      ],
+      "images": {
+        "small": "/drivers/panel/assets/images/small.png",
+        "large": "/drivers/panel/assets/images/large.png",
+        "xlarge": "/drivers/panel/assets/images/xlarge.png"
+      },
+      "id": "panel",
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Load Center"
+          },
+          "children": [
+            {
+              "id": "model",
+              "type": "label",
+              "label": {
+                "en": "Model"
+              },
+              "value": "-"
+            },
+            {
+              "id": "serial",
+              "type": "label",
+              "label": {
+                "en": "Serial number"
+              },
+              "value": "-"
+            },
+            {
+              "id": "firmware",
+              "type": "label",
+              "label": {
+                "en": "Firmware"
+              },
+              "value": "-"
+            },
+            {
+              "id": "firmware_update",
+              "type": "label",
+              "label": {
+                "en": "Firmware update"
+              },
+              "value": "-"
+            },
+            {
+              "id": "residence",
+              "type": "label",
+              "label": {
+                "en": "Residence ID"
+              },
+              "value": "-"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Network"
+          },
+          "children": [
+            {
+              "id": "ip",
+              "type": "label",
+              "label": {
+                "en": "IP address"
+              },
+              "value": "-"
+            },
+            {
+              "id": "wifi_ssid",
+              "type": "label",
+              "label": {
+                "en": "Wi-Fi SSID"
+              },
+              "value": "-"
+            },
+            {
+              "id": "wifi_rssi",
+              "type": "label",
+              "label": {
+                "en": "Wi-Fi signal (dBm)"
+              },
+              "value": "-"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "capabilities": {
+    "alarm_afci": {
+      "type": "boolean",
+      "title": {
+        "en": "Arc fault (AFCI)"
+      },
+      "uiComponent": "sensor",
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "insightsTitleTrue": {
+        "en": "Arc fault detected"
+      },
+      "insightsTitleFalse": {
+        "en": "Arc fault cleared"
+      }
+    },
+    "alarm_gfci": {
+      "type": "boolean",
+      "title": {
+        "en": "Ground fault (GFCI)"
+      },
+      "uiComponent": "sensor",
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "insightsTitleTrue": {
+        "en": "Ground fault detected"
+      },
+      "insightsTitleFalse": {
+        "en": "Ground fault cleared"
+      }
+    },
+    "breaker_rating": {
+      "type": "number",
+      "title": {
+        "en": "Breaker rating"
+      },
+      "uiComponent": "sensor",
+      "getable": true,
+      "setable": false,
+      "insights": false,
+      "units": {
+        "en": "A"
+      },
+      "min": 0,
+      "max": 200,
+      "step": 1,
+      "decimals": 0,
+      "icon": "/assets/breaker_rating.svg"
+    },
+    "breaker_state": {
+      "type": "enum",
+      "title": {
+        "en": "Breaker state"
+      },
+      "uiComponent": "sensor",
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "icon": "/assets/breaker_state.svg",
+      "values": [
+        {
+          "id": "on",
+          "title": {
+            "en": "On"
+          }
+        },
+        {
+          "id": "off",
+          "title": {
+            "en": "Off"
+          }
+        },
+        {
+          "id": "connecting",
+          "title": {
+            "en": "Connecting"
+          }
+        },
+        {
+          "id": "offline",
+          "title": {
+            "en": "Offline"
+          }
+        },
+        {
+          "id": "software_trip",
+          "title": {
+            "en": "Remotely tripped"
+          }
+        },
+        {
+          "id": "gfci_fault",
+          "title": {
+            "en": "Tripped — Ground fault (GFCI)"
+          }
+        },
+        {
+          "id": "afci_miswire",
+          "title": {
+            "en": "AFCI miswire"
+          }
+        },
+        {
+          "id": "afci_fault",
+          "title": {
+            "en": "Tripped — Arc fault (AFCI)"
+          }
+        },
+        {
+          "id": "overcurrent_trip",
+          "title": {
+            "en": "Tripped — Overcurrent"
+          }
+        },
+        {
+          "id": "overload_trip",
+          "title": {
+            "en": "Tripped — Overload"
+          }
+        },
+        {
+          "id": "short_circuit_trip",
+          "title": {
+            "en": "Tripped — Short circuit"
+          }
+        },
+        {
+          "id": "upstream_fault",
+          "title": {
+            "en": "Upstream fault"
+          }
+        }
+      ]
+    },
+    "measure_frequency": {
+      "type": "number",
+      "title": {
+        "en": "Frequency"
+      },
+      "uiComponent": "sensor",
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "units": {
+        "en": "Hz"
+      },
+      "decimals": 2,
+      "min": 0,
+      "max": 100,
+      "icon": "/assets/measure_frequency.svg"
+    }
+  }
+}

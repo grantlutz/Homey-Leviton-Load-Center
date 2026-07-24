@@ -1,0 +1,60 @@
+{
+  "name": {
+    "en": "Current Transformer"
+  },
+  "class": "sensor",
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "capabilities": [
+    "measure_power",
+    "meter_power",
+    "measure_current"
+  ],
+  "capabilitiesOptions": {
+    "measure_power": {
+      "title": {
+        "en": "Power"
+      }
+    },
+    "meter_power": {
+      "title": {
+        "en": "Energy"
+      }
+    },
+    "measure_current": {
+      "title": {
+        "en": "Current"
+      }
+    }
+  },
+  "pair": [
+    {
+      "id": "login"
+    },
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ],
+  "repair": [
+    {
+      "id": "login"
+    }
+  ],
+  "images": {
+    "small": "/drivers/ct/assets/images/small.png",
+    "large": "/drivers/ct/assets/images/large.png",
+    "xlarge": "/drivers/ct/assets/images/xlarge.png"
+  }
+}

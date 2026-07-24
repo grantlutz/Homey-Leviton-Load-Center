@@ -1,0 +1,10 @@
+{
+  "type": "boolean",
+  "title": { "en": "Ground fault (GFCI)" },
+  "uiComponent": "sensor",
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "insightsTitleTrue": { "en": "Ground fault detected" },
+  "insightsTitleFalse": { "en": "Ground fault cleared" }
+}

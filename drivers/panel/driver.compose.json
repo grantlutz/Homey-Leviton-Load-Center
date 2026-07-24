@@ -1,0 +1,119 @@
+{
+  "name": {
+    "en": "Load Center"
+  },
+  "class": "sensor",
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "cloud"
+  ],
+  "capabilities": [
+    "measure_power",
+    "meter_power",
+    "measure_current",
+    "measure_voltage",
+    "measure_frequency",
+    "measure_voltage.leg1",
+    "measure_voltage.leg2",
+    "measure_power.leg1",
+    "measure_power.leg2",
+    "measure_current.leg1",
+    "measure_current.leg2",
+    "measure_frequency.leg1",
+    "measure_frequency.leg2"
+  ],
+  "capabilitiesOptions": {
+    "measure_power": {
+      "title": {
+        "en": "Total power"
+      }
+    },
+    "meter_power": {
+      "title": {
+        "en": "Total energy"
+      }
+    },
+    "measure_current": {
+      "title": {
+        "en": "Total current"
+      }
+    },
+    "measure_voltage": {
+      "title": {
+        "en": "Voltage (avg)"
+      }
+    },
+    "measure_voltage.leg1": {
+      "title": {
+        "en": "Voltage L1"
+      }
+    },
+    "measure_voltage.leg2": {
+      "title": {
+        "en": "Voltage L2"
+      }
+    },
+    "measure_power.leg1": {
+      "title": {
+        "en": "Power L1"
+      }
+    },
+    "measure_power.leg2": {
+      "title": {
+        "en": "Power L2"
+      }
+    },
+    "measure_current.leg1": {
+      "title": {
+        "en": "Current L1"
+      }
+    },
+    "measure_current.leg2": {
+      "title": {
+        "en": "Current L2"
+      }
+    },
+    "measure_frequency.leg1": {
+      "title": {
+        "en": "Frequency L1"
+      }
+    },
+    "measure_frequency.leg2": {
+      "title": {
+        "en": "Frequency L2"
+      }
+    }
+  },
+  "energy": {
+    "cumulative": true,
+    "cumulativeImportedCapability": "meter_power"
+  },
+  "pair": [
+    {
+      "id": "login"
+    },
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ],
+  "repair": [
+    {
+      "id": "login"
+    }
+  ],
+  "images": {
+    "small": "/drivers/panel/assets/images/small.png",
+    "large": "/drivers/panel/assets/images/large.png",
+    "xlarge": "/drivers/panel/assets/images/xlarge.png"
+  }
+}
