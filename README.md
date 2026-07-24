@@ -2,9 +2,13 @@
 
 A native **Homey Pro** app that monitors and controls **Leviton 2nd-generation Smart Load Center**
 circuit breakers (LWHEM Whole-Home Energy Module and the older LDATA/DAU panel) through the
-**My Leviton cloud**. It is a clean-room Node.js port of the MIT-licensed Home Assistant integration
-[`gtxaspec/leviton-load-center`](https://github.com/gtxaspec/leviton-load-center) and its
-[`aioleviton`](https://github.com/gtxaspec/aioleviton) protocol library.
+**My Leviton cloud**.
+
+> 🙏 **This app is a port.** All protocol knowledge comes from the excellent MIT-licensed
+> Home Assistant integration by **[gtxaspec](https://github.com/gtxaspec)** —
+> [`gtxaspec/leviton-load-center`](https://github.com/gtxaspec/leviton-load-center) and its
+> [`aioleviton`](https://github.com/gtxaspec/aioleviton) protocol library — reimplemented
+> clean-room in Node.js for the Homey SDK. If you use Home Assistant, use the original.
 
 > ⚠️ **Unofficial.** Leviton publishes no public API. This app talks to the same private cloud the
 > My Leviton app uses. Leviton can change it and break the app at any time. It is **cloud-dependent**
@@ -232,7 +236,8 @@ Contributions welcome — open an issue first for anything beyond a small fix.
 
 ## Credits & license
 
-MIT. Protocol facts (URLs, JSON shapes, timing constants) were reimplemented clean-room in Node.js
-from the MIT-licensed [`gtxaspec/leviton-load-center`](https://github.com/gtxaspec/leviton-load-center)
-and [`gtxaspec/aioleviton`](https://github.com/gtxaspec/aioleviton). Not affiliated with or endorsed
-by Leviton Manufacturing Co.
+MIT. Ported from the Home Assistant integration by [**gtxaspec**](https://github.com/gtxaspec):
+protocol facts (URLs, JSON shapes, timing constants) were reimplemented clean-room in Node.js from
+the MIT-licensed [`gtxaspec/leviton-load-center`](https://github.com/gtxaspec/leviton-load-center)
+and [`gtxaspec/aioleviton`](https://github.com/gtxaspec/aioleviton) — thank you for doing the hard
+reverse-engineering work. Not affiliated with or endorsed by Leviton Manufacturing Co.
