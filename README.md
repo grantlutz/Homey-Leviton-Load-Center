@@ -18,6 +18,8 @@ circuit breakers (LWHEM Whole-Home Energy Module and the older LDATA/DAU panel) 
 - **Repository:** https://github.com/grantlutz/Homey-Leviton-Load-Center
 - **Issues / support:** https://github.com/grantlutz/Homey-Leviton-Load-Center/issues
 - **App id:** `com.leviton.loadcenter` · **SDK:** 3 · **Platform:** Homey Pro (local)
+- **Full feature & use-case reference:** [docs/FEATURES.md](./docs/FEATURES.md)
+- **Project principles:** [CONSTITUTION.md](./CONSTITUTION.md) — read before contributing
 
 ---
 
@@ -223,7 +225,9 @@ homey app run         # live dev run with streaming logs (Ctrl-C uninstalls)
   [`VALIDATION.md`](./VALIDATION.md) for the manual test checklist, and
   [`PUBLISHING.md`](./PUBLISHING.md) for the Homey App Store publishing runbook.
 
-Contributions welcome — open an issue first for anything beyond a small fix.
+Contributions welcome — open an issue first for anything beyond a small fix, and read the
+[project constitution](./CONSTITUTION.md); PRs are reviewed against it (safety rules around breaker
+control in particular).
 
 ## Limitations & notes
 
