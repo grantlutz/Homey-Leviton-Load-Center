@@ -40,7 +40,9 @@ module.exports = class BreakerDriver extends Homey.Driver {
       .registerRunListener(async (args, state) => state.prev > args.amps && state.current <= args.amps);
 
     // Cached device trigger cards (avoid per-push lookups in device.applyState).
-    this.trgTripped = this.homey.flow.getDeviceTriggerCard('breaker_tripped');
+    // Flows saved before the reason dropdown existed have no args.reason → treat as 'any'.
+    this.trgTripped = this.homey.flow.getDeviceTriggerCard('breaker_tripped')
+      .registerRunListener(async (args, state) => !args.reason || args.reason === 'any' || args.reason === state.reasonId);
     this.trgWentOffline = this.homey.flow.getDeviceTriggerCard('breaker_went_offline');
     this.trgCameOnline = this.homey.flow.getDeviceTriggerCard('breaker_came_online');
   }

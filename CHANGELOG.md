@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.2 — 2026-07-25
+
+### Fixed
+- **Flow:** the *"This breaker tripped (reason)"* trigger showed a dead, uneditable "reason" chip —
+  the placeholder referenced a token instead of an argument. The reason is now a real dropdown
+  (**Any reason**, Remote trip, Ground fault (GFCI), Arc fault (AFCI), AFCI miswire, Overcurrent,
+  Overload, Short circuit, Upstream fault) and the trigger filters on it. The *Trip reason* and
+  *Power* tags are still available to later cards. Flows saved with the old card keep working and
+  behave as "Any reason" — open them and re-pick the card to use the filter.
+
 ## 1.0.1 — 2026-07-24
 
 ### Fixed

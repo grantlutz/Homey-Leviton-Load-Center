@@ -79,7 +79,7 @@ module.exports = class BreakerDevice extends Homey.Device {
     if (this._prevTripped !== null && s.tripped && !this._prevTripped) {
       if (this.driver.trgTripped) {
         this.driver.trgTripped
-          .trigger(this, { reason: s.reason || 'Tripped', power: s.power }, {})
+          .trigger(this, { reason: s.reason || 'Tripped', power: s.power }, { reasonId: s.state })
           .catch(this.error);
       }
       this.homey.notifications.createNotification({

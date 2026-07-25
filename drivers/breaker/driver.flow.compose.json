@@ -3,8 +3,26 @@
     {
       "id": "breaker_tripped",
       "title": { "en": "A breaker tripped" },
-      "titleFormatted": { "en": "This breaker tripped (reason [[reason]])" },
-      "hint": { "en": "Fires when this breaker enters any tripped/fault state." },
+      "titleFormatted": { "en": "This breaker tripped ([[reason]])" },
+      "hint": { "en": "Fires when this breaker enters a tripped/fault state. Pick a specific reason to filter, or 'Any reason'." },
+      "args": [
+        {
+          "name": "reason",
+          "type": "dropdown",
+          "title": { "en": "Reason" },
+          "values": [
+            { "id": "any", "label": { "en": "Any reason" } },
+            { "id": "software_trip", "label": { "en": "Remote trip" } },
+            { "id": "gfci_fault", "label": { "en": "Ground fault (GFCI)" } },
+            { "id": "afci_fault", "label": { "en": "Arc fault (AFCI)" } },
+            { "id": "afci_miswire", "label": { "en": "AFCI miswire" } },
+            { "id": "overcurrent_trip", "label": { "en": "Overcurrent" } },
+            { "id": "overload_trip", "label": { "en": "Overload" } },
+            { "id": "short_circuit_trip", "label": { "en": "Short circuit" } },
+            { "id": "upstream_fault", "label": { "en": "Upstream fault" } }
+          ]
+        }
+      ],
       "tokens": [
         { "name": "reason", "type": "string", "title": { "en": "Trip reason" }, "example": { "en": "GFCI fault" } },
         { "name": "power", "type": "number", "title": { "en": "Power (W)" }, "example": 0 }
