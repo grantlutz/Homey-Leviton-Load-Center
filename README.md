@@ -17,7 +17,7 @@ circuit breakers (LWHEM Whole-Home Energy Module and the older LDATA/DAU panel) 
 
 - **Repository:** https://github.com/grantlutz/Homey-Leviton-Load-Center
 - **Issues / support:** https://github.com/grantlutz/Homey-Leviton-Load-Center/issues
-- **App id:** `io.grantlutz.loadcenter` · **SDK:** 3 · **Platform:** Homey Pro (local)
+- **App id:** `io.github.grantlutz.loadcenter` · **SDK:** 3 · **Platform:** Homey Pro (local)
 - **Full feature & use-case reference:** [docs/FEATURES.md](./docs/FEATURES.md)
 - **Project principles:** [CONSTITUTION.md](./CONSTITUTION.md) — read before contributing
 

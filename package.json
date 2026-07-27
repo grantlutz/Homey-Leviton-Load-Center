@@ -1,6 +1,6 @@
 {
-  "name": "io.grantlutz.loadcenter",
-  "version": "1.0.4",
+  "name": "io.github.grantlutz.loadcenter",
+  "version": "1.0.5",
   "description": "Monitor and control Leviton Smart Load Center circuit breakers on Homey Pro.",
   "main": "app.js",
   "scripts": {

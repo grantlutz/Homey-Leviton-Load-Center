@@ -1,6 +1,6 @@
 # Publishing this app to the Homey App Store
 
-How to take `io.grantlutz.loadcenter` from this folder to a public listing other Homey users can
+How to take `io.github.grantlutz.loadcenter` from this folder to a public listing other Homey users can
 install. Publishing is free; you need an [Athom account](https://homey.app) and the Homey CLI.
 
 ## 0. One-time prerequisites
@@ -57,7 +57,7 @@ The CLI will:
    - Missing/low-quality images, missing support URL.
    - Crashes during their smoke test — hence step 1.
 4. Once approved you choose **Test** or **Live**:
-   - **Test**: installable only via a direct test URL (`https://homey.app/a/io.grantlutz.loadcenter/test/`) —
+   - **Test**: installable only via a direct test URL (`https://homey.app/a/io.github.grantlutz.loadcenter/test/`) —
      great for a beta with other Leviton owners before going public.
    - **Live**: public in the App Store for everyone.
 
