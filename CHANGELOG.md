@@ -30,7 +30,7 @@ by the publish flow's mandatory version bump — no separate release).
 ## 1.0.3 — 2026-07-27
 
 Uploaded to the App Store under the old `com.leviton.loadcenter` id; abandoned before
-certification in favor of 1.0.4 above.
+certification in favor of 1.0.6 above.
 
 ### Added
 - Real App Store artwork replacing the generated placeholders: app hero image plus breaker,
