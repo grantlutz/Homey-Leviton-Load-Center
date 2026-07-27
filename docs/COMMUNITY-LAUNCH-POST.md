@@ -57,7 +57,7 @@ control for your electrical panel, natively in Homey.
 ### Install
 
 - **App Store:** *(link once live — currently submitted / in certification)*
-- **Test build:** https://homey.app/a/com.leviton.loadcenter/test/
+- **Test build:** https://homey.app/a/io.grantlutz.loadcenter/test/
 - **Source code (MIT):** https://github.com/grantlutz/Homey-Leviton-Load-Center — full docs,
   a feature/use-case guide, and the project's contribution principles live there. Issues and PRs
   welcome; it's a public repo because I'd love collaborators.

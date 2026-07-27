@@ -17,6 +17,14 @@ All notable changes to this project are recorded here, newest first.
 
 First build uploaded to the Homey App Store (pending certification).
 
+### Changed
+- **App identity, before first publication:** the app id is now `io.grantlutz.loadcenter`
+  (was `com.leviton.loadcenter`) and the display name is **"Leviton Load Center (Unofficial)"** —
+  a reverse-DNS id must use a domain the developer controls, and both changes make the unofficial
+  status unmistakable. An earlier draft upload under the old id was abandoned before certification;
+  nothing was ever published under it. Sideloaded installs of the old id are a separate app —
+  uninstall it and re-pair under the new one.
+
 ### Added
 - Real App Store artwork replacing the generated placeholders: app hero image plus breaker,
   load-center, and CT driver illustrations at all required sizes. Original flat-design artwork,
