@@ -13,7 +13,9 @@ All notable changes to this project are recorded here, newest first.
 >   fixes = patch, new cards/capabilities = minor, breaking = major.
 > - Entries say what a **user** will notice, not which files changed.
 
-## Unreleased
+## 1.0.7 — 2026-07-27
+
+App Store build 2 — replaces build 1 for the certification submission.
 
 ### Fixed
 - **Current Transformer artwork redrawn** so it actually depicts the device: the driver images now
