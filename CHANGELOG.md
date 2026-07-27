@@ -13,7 +13,9 @@ All notable changes to this project are recorded here, newest first.
 >   fixes = patch, new cards/capabilities = minor, breaking = major.
 > - Entries say what a **user** will notice, not which files changed.
 
-## Unreleased
+## 1.0.3 — 2026-07-27
+
+First build uploaded to the Homey App Store (pending certification).
 
 ### Added
 - Real App Store artwork replacing the generated placeholders: app hero image plus breaker,
