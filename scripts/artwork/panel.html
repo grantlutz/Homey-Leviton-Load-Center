@@ -1,0 +1,88 @@
+<!doctype html><html><head><style>html,body{margin:0;padding:0}</style></head><body>
+<svg width="1000" height="1000" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bg" cx="0.5" cy="0.42" r="0.75">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e2e9ef"/>
+    </radialGradient>
+    <linearGradient id="box" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e3eaef"/>
+      <stop offset="1" stop-color="#bcc8d1"/>
+    </linearGradient>
+    <linearGradient id="face" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7f9fb"/>
+      <stop offset="1" stop-color="#dfe6ec"/>
+    </linearGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="26" flood-color="#31424e" flood-opacity="0.35"/>
+    </filter>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="7" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1000" height="1000" fill="url(#bg)"/>
+
+  <g filter="url(#soft)">
+    <!-- enclosure -->
+    <rect x="215" y="110" width="570" height="780" rx="26" fill="url(#box)"/>
+    <rect x="215" y="110" width="570" height="780" rx="26" fill="none" stroke="#8fa0ad" stroke-width="5"/>
+    <rect x="258" y="153" width="484" height="694" rx="16" fill="url(#face)" stroke="#a5b5c1" stroke-width="3"/>
+
+    <!-- main breaker -->
+    <rect x="386" y="185" width="228" height="96" rx="12" fill="#2b3a45"/>
+    <rect x="466" y="201" width="68" height="64" rx="10" fill="#0098DB"/>
+    <rect x="480" y="223" width="40" height="20" rx="5" fill="#e8f6fd"/>
+    <text x="500" y="304" text-anchor="middle" font-family="-apple-system, Helvetica, Arial, sans-serif"
+          font-size="24" font-weight="700" fill="#6a7a86">MAIN · 200 A</text>
+
+    <!-- branch breakers: two columns -->
+    <g fill="#31424e">
+      <rect x="300" y="336" width="176" height="66" rx="9"/>
+      <rect x="300" y="418" width="176" height="66" rx="9"/>
+      <rect x="300" y="500" width="176" height="66" rx="9"/>
+      <rect x="300" y="582" width="176" height="66" rx="9"/>
+      <rect x="300" y="664" width="176" height="66" rx="9"/>
+      <rect x="524" y="336" width="176" height="66" rx="9"/>
+      <rect x="524" y="418" width="176" height="66" rx="9"/>
+      <rect x="524" y="500" width="176" height="66" rx="9"/>
+      <rect x="524" y="582" width="176" height="66" rx="9"/>
+      <rect x="524" y="664" width="176" height="66" rx="9"/>
+    </g>
+    <!-- toggles on the centre edge -->
+    <g fill="#cdd8e0">
+      <rect x="424" y="350" width="38" height="38" rx="7"/>
+      <rect x="424" y="432" width="38" height="38" rx="7"/>
+      <rect x="424" y="514" width="38" height="38" rx="7"/>
+      <rect x="424" y="596" width="38" height="38" rx="7"/>
+      <rect x="424" y="678" width="38" height="38" rx="7"/>
+      <rect x="538" y="350" width="38" height="38" rx="7"/>
+      <rect x="538" y="432" width="38" height="38" rx="7"/>
+      <rect x="538" y="514" width="38" height="38" rx="7"/>
+      <rect x="538" y="596" width="38" height="38" rx="7"/>
+      <rect x="538" y="678" width="38" height="38" rx="7"/>
+    </g>
+    <!-- smart-breaker LEDs -->
+    <g fill="#33c1ff" filter="url(#glow)">
+      <circle cx="322" cy="369" r="8"/>
+      <circle cx="322" cy="451" r="8"/>
+      <circle cx="322" cy="615" r="8"/>
+      <circle cx="678" cy="369" r="8"/>
+      <circle cx="678" cy="533" r="8"/>
+      <circle cx="678" cy="697" r="8"/>
+    </g>
+
+    <!-- energy monitor module -->
+    <rect x="300" y="762" width="400" height="56" rx="10" fill="#20303b"/>
+    <circle cx="330" cy="790" r="9" fill="#33c1ff" filter="url(#glow)"/>
+    <rect x="356" y="780" width="200" height="20" rx="5" fill="#3c5261"/>
+    <!-- wifi arcs -->
+    <g stroke="#33c1ff" stroke-width="6" fill="none" stroke-linecap="round">
+      <path d="M636 796 a 14 14 0 0 1 24 0"/>
+      <path d="M626 784 a 28 28 0 0 1 44 0"/>
+    </g>
+    <circle cx="648" cy="802" r="5" fill="#33c1ff"/>
+  </g>
+</svg>
+</body></html>

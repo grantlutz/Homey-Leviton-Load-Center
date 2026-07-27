@@ -1,0 +1,60 @@
+<!doctype html><html><head><style>html,body{margin:0;padding:0}</style></head><body>
+<svg width="1000" height="1000" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bg" cx="0.5" cy="0.42" r="0.75">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e2e9ef"/>
+    </radialGradient>
+    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3a4c59"/>
+      <stop offset="1" stop-color="#22303a"/>
+    </linearGradient>
+    <linearGradient id="cable" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#333c44"/>
+      <stop offset="1" stop-color="#171e24"/>
+    </linearGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="26" flood-color="#31424e" flood-opacity="0.38"/>
+    </filter>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1000" height="1000" fill="url(#bg)"/>
+
+  <!-- conductor cable through the clamp -->
+  <g filter="url(#soft)">
+    <path d="M 315 905 C 390 760 420 640 500 500 C 580 360 615 250 690 110"
+          stroke="url(#cable)" stroke-width="120" fill="none" stroke-linecap="round"/>
+    <path d="M 322 890 C 395 750 428 636 505 498"
+          stroke="#465059" stroke-width="16" fill="none" stroke-linecap="round" opacity="0.7"/>
+  </g>
+
+  <!-- CT clamp ring -->
+  <g filter="url(#soft)">
+    <circle cx="500" cy="500" r="235" fill="none" stroke="url(#ring)" stroke-width="120"/>
+    <!-- hinge & latch details -->
+    <rect x="252" y="452" width="86" height="96" rx="20" fill="#22303a"/>
+    <rect x="664" y="452" width="86" height="96" rx="20" fill="#2b3a45"/>
+    <rect x="686" y="474" width="42" height="52" rx="10" fill="#0098DB"/>
+    <!-- LED -->
+    <circle cx="500" cy="286" r="13" fill="#33c1ff" filter="url(#glow)"/>
+  </g>
+
+  <!-- pigtail leads to a connector -->
+  <g fill="none" stroke-linecap="round">
+    <path d="M 295 545 C 190 640 165 720 210 830" stroke="#dfe6ec" stroke-width="18"/>
+    <path d="M 305 570 C 215 660 195 730 238 842" stroke="#31424e" stroke-width="18"/>
+  </g>
+  <rect x="186" y="822" width="88" height="58" rx="12" fill="#31424e"/>
+  <rect x="204" y="838" width="52" height="26" rx="6" fill="#0098DB"/>
+
+  <!-- little current arrow along the cable -->
+  <g stroke="#33c1ff" stroke-width="10" fill="none" stroke-linecap="round" filter="url(#glow)" opacity="0.95">
+    <path d="M 588 330 C 610 288 625 250 650 205"/>
+    <path d="M 628 240 L 650 205 L 658 246"/>
+  </g>
+</svg>
+</body></html>

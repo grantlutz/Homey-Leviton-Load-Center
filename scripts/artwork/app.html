@@ -1,0 +1,138 @@
+<!doctype html><html><head><style>html,body{margin:0;padding:0}</style></head><body>
+<svg width="1000" height="700" viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d2436"/>
+      <stop offset="0.55" stop-color="#123c58"/>
+      <stop offset="1" stop-color="#0a1c2a"/>
+    </linearGradient>
+    <linearGradient id="wave" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0098DB" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#33c1ff"/>
+      <stop offset="1" stop-color="#0098DB" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="box" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#dfe6ec"/>
+      <stop offset="1" stop-color="#b9c4cd"/>
+    </linearGradient>
+    <linearGradient id="face" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6f8fa"/>
+      <stop offset="1" stop-color="#dde4ea"/>
+    </linearGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="10" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="14" stdDeviation="22" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <rect width="1000" height="700" fill="url(#bg)"/>
+
+  <!-- faint circuit traces -->
+  <g stroke="#1e5d85" stroke-width="3" fill="none" opacity="0.5">
+    <path d="M60 120 H 240 V 240 H 340"/>
+    <path d="M60 560 H 200 V 470 H 330"/>
+    <path d="M940 150 H 780 V 260 H 668"/>
+    <path d="M940 590 H 800 V 480 H 668"/>
+  </g>
+  <g fill="#2e7cab" opacity="0.8">
+    <circle cx="60" cy="120" r="7"/><circle cx="60" cy="560" r="7"/>
+    <circle cx="940" cy="150" r="7"/><circle cx="940" cy="590" r="7"/>
+  </g>
+
+  <!-- energy wave behind panel -->
+  <path d="M-20 350 C 150 350 170 250 260 250 S 380 430 500 430 620 250 740 250 850 350 1020 350"
+        stroke="url(#wave)" stroke-width="10" fill="none" filter="url(#glow)" opacity="0.9"/>
+
+  <!-- load center -->
+  <g filter="url(#soft)">
+    <rect x="345" y="95" width="310" height="510" rx="18" fill="url(#box)"/>
+    <rect x="345" y="95" width="310" height="510" rx="18" fill="none" stroke="#8fa0ad" stroke-width="3"/>
+    <rect x="373" y="123" width="254" height="454" rx="10" fill="url(#face)" stroke="#9fb0bc" stroke-width="2"/>
+
+    <!-- main breaker -->
+    <rect x="437" y="143" width="126" height="58" rx="8" fill="#2b3a45"/>
+    <rect x="483" y="153" width="34" height="38" rx="6" fill="#0098DB"/>
+    <rect x="490" y="166" width="20" height="12" rx="3" fill="#e8f6fd"/>
+
+    <!-- branch breakers -->
+    <g>
+      <!-- left column -->
+      <g fill="#31424e">
+        <rect x="399" y="228" width="92" height="40" rx="6"/>
+        <rect x="399" y="280" width="92" height="40" rx="6"/>
+        <rect x="399" y="332" width="92" height="40" rx="6"/>
+        <rect x="399" y="384" width="92" height="40" rx="6"/>
+        <rect x="399" y="436" width="92" height="40" rx="6"/>
+        <rect x="399" y="488" width="92" height="40" rx="6"/>
+      </g>
+      <!-- right column -->
+      <g fill="#31424e">
+        <rect x="509" y="228" width="92" height="40" rx="6"/>
+        <rect x="509" y="280" width="92" height="40" rx="6"/>
+        <rect x="509" y="332" width="92" height="40" rx="6"/>
+        <rect x="509" y="384" width="92" height="40" rx="6"/>
+        <rect x="509" y="436" width="92" height="40" rx="6"/>
+        <rect x="509" y="488" width="92" height="40" rx="6"/>
+      </g>
+      <!-- toggles: inner edge -->
+      <g fill="#c9d4dc">
+        <rect x="463" y="236" width="20" height="24" rx="4"/>
+        <rect x="463" y="288" width="20" height="24" rx="4"/>
+        <rect x="463" y="340" width="20" height="24" rx="4"/>
+        <rect x="463" y="392" width="20" height="24" rx="4"/>
+        <rect x="463" y="444" width="20" height="24" rx="4"/>
+        <rect x="463" y="496" width="20" height="24" rx="4"/>
+        <rect x="517" y="236" width="20" height="24" rx="4"/>
+        <rect x="517" y="288" width="20" height="24" rx="4"/>
+        <rect x="517" y="340" width="20" height="24" rx="4"/>
+        <rect x="517" y="392" width="20" height="24" rx="4"/>
+        <rect x="517" y="444" width="20" height="24" rx="4"/>
+        <rect x="517" y="496" width="20" height="24" rx="4"/>
+      </g>
+      <!-- status LEDs on smart breakers -->
+      <g fill="#33c1ff" filter="url(#glow)">
+        <circle cx="412" cy="248" r="5"/>
+        <circle cx="412" cy="300" r="5"/>
+        <circle cx="412" cy="404" r="5"/>
+        <circle cx="588" cy="248" r="5"/>
+        <circle cx="588" cy="352" r="5"/>
+        <circle cx="588" cy="456" r="5"/>
+      </g>
+      <!-- one tripped breaker LED -->
+      <circle cx="412" cy="456" r="5" fill="#ff8a3d" filter="url(#glow)"/>
+    </g>
+
+    <!-- energy module strip -->
+    <rect x="399" y="540" width="202" height="26" rx="6" fill="#20303b"/>
+    <circle cx="416" cy="553" r="5" fill="#33c1ff" filter="url(#glow)"/>
+    <rect x="432" y="548" width="120" height="10" rx="3" fill="#3c5261"/>
+  </g>
+
+  <!-- live readout chips -->
+  <g font-family="-apple-system, Helvetica, Arial, sans-serif">
+    <g filter="url(#soft)">
+      <rect x="120" y="200" width="180" height="72" rx="14" fill="#10344c" stroke="#2a6a94" stroke-width="2"/>
+      <text x="140" y="231" fill="#8fd6f7" font-size="20">Power</text>
+      <text x="140" y="260" fill="#ffffff" font-size="26" font-weight="700">4 320 W</text>
+    </g>
+    <g filter="url(#soft)">
+      <rect x="120" y="430" width="180" height="72" rx="14" fill="#10344c" stroke="#2a6a94" stroke-width="2"/>
+      <text x="140" y="461" fill="#8fd6f7" font-size="20">Energy</text>
+      <text x="140" y="490" fill="#ffffff" font-size="26" font-weight="700">12 480 kWh</text>
+    </g>
+    <g filter="url(#soft)">
+      <rect x="700" y="200" width="180" height="72" rx="14" fill="#10344c" stroke="#2a6a94" stroke-width="2"/>
+      <text x="720" y="231" fill="#8fd6f7" font-size="20">Current</text>
+      <text x="720" y="260" fill="#ffffff" font-size="26" font-weight="700">18.2 A</text>
+    </g>
+    <g filter="url(#soft)">
+      <rect x="700" y="430" width="180" height="72" rx="14" fill="#10344c" stroke="#2a6a94" stroke-width="2"/>
+      <text x="720" y="461" fill="#ff9a56" font-size="20">Tripped</text>
+      <text x="720" y="490" fill="#ffffff" font-size="26" font-weight="700">GFCI fault</text>
+    </g>
+  </g>
+</svg>
+</body></html>

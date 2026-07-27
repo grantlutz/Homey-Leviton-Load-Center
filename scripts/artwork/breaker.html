@@ -1,0 +1,71 @@
+<!doctype html><html><head><style>html,body{margin:0;padding:0}</style></head><body>
+<svg width="1000" height="1000" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bg" cx="0.5" cy="0.42" r="0.75">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e2e9ef"/>
+    </radialGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3a4c59"/>
+      <stop offset="0.5" stop-color="#2b3a45"/>
+      <stop offset="1" stop-color="#22303a"/>
+    </linearGradient>
+    <linearGradient id="faceplate" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#48606f"/>
+      <stop offset="1" stop-color="#354754"/>
+    </linearGradient>
+    <linearGradient id="toggle" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#29b6f6"/>
+      <stop offset="1" stop-color="#0098DB"/>
+    </linearGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="26" flood-color="#31424e" flood-opacity="0.38"/>
+    </filter>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1000" height="1000" fill="url(#bg)"/>
+
+  <g filter="url(#soft)">
+    <!-- breaker body -->
+    <rect x="335" y="130" width="330" height="740" rx="34" fill="url(#body)"/>
+    <rect x="335" y="130" width="330" height="740" rx="34" fill="none" stroke="#1a252d" stroke-width="4"/>
+
+    <!-- top terminal lug -->
+    <rect x="430" y="96" width="140" height="60" rx="12" fill="#8b98a2"/>
+    <rect x="470" y="72" width="60" height="34" rx="8" fill="#6e7c86"/>
+
+    <!-- faceplate -->
+    <rect x="373" y="196" width="254" height="608" rx="22" fill="url(#faceplate)"/>
+
+    <!-- toggle track -->
+    <rect x="424" y="300" width="152" height="330" rx="24" fill="#1c2830"/>
+    <rect x="424" y="300" width="152" height="330" rx="24" fill="none" stroke="#101820" stroke-width="3"/>
+    <!-- ON / OFF molded labels -->
+    <text x="500" y="288" text-anchor="middle" font-family="-apple-system, Helvetica, Arial, sans-serif"
+          font-size="34" font-weight="700" fill="#9fb2bf">ON</text>
+    <text x="500" y="672" text-anchor="middle" font-family="-apple-system, Helvetica, Arial, sans-serif"
+          font-size="34" font-weight="700" fill="#9fb2bf">OFF</text>
+    <!-- toggle handle (ON position) -->
+    <rect x="436" y="314" width="128" height="150" rx="18" fill="url(#toggle)"/>
+    <rect x="466" y="352" width="68" height="18" rx="9" fill="#e8f6fd"/>
+    <rect x="466" y="390" width="68" height="18" rx="9" fill="#bfe9fb"/>
+
+    <!-- amp rating -->
+    <text x="500" y="740" text-anchor="middle" font-family="-apple-system, Helvetica, Arial, sans-serif"
+          font-size="58" font-weight="800" fill="#dde7ee">20</text>
+
+    <!-- status LED + test button -->
+    <circle cx="430" cy="238" r="13" fill="#33c1ff" filter="url(#glow)"/>
+    <rect x="520" y="222" width="66" height="32" rx="9" fill="#c8d3db"/>
+    <text x="553" y="245" text-anchor="middle" font-family="-apple-system, Helvetica, Arial, sans-serif"
+          font-size="19" font-weight="700" fill="#39424b">TEST</text>
+
+    <!-- bottom plug-on stab -->
+    <rect x="450" y="856" width="100" height="46" rx="10" fill="#8b98a2"/>
+  </g>
+</svg>
+</body></html>
