@@ -1,5 +1,32 @@
 # Changelog
 
+All notable changes to this project are recorded here, newest first.
+
+> **Maintenance policy:** this file is maintained by Claude (the AI assistant working on this repo)
+> as part of every change set — human contributors are welcome to add entries in PRs, and Claude
+> will reconcile them. Rules:
+> - Every user-visible change lands here **in the same commit** that makes it.
+> - Entries are grouped under the release version (`Added` / `Changed` / `Fixed`), with an
+>   **Unreleased** section collecting work between releases; it becomes the next version's entry
+>   when the version is bumped in `.homeycompose/app.json` + `package.json`.
+> - Dates are absolute (YYYY-MM-DD). Semver per the [Constitution](./CONSTITUTION.md), Article X:
+>   fixes = patch, new cards/capabilities = minor, breaking = major.
+> - Entries say what a **user** will notice, not which files changed.
+
+## Unreleased
+
+### Added
+- Real App Store artwork replacing the generated placeholders: app hero image plus breaker,
+  load-center, and CT driver illustrations at all required sizes. Original flat-design artwork,
+  no Leviton trademarks; editable SVG sources kept in `scripts/artwork/`.
+- Homey Community launch post draft (`docs/COMMUNITY-LAUNCH-POST.md`) with the `[APP][Pro] …
+  (Unofficial)` subject line, ready for the forum support thread.
+- Full feature/functionality/use-case reference (`docs/FEATURES.md`) and project
+  [Constitution](./CONSTITUTION.md), both linked from the README.
+
+### Changed
+- README: prominent attribution to gtxaspec's original Home Assistant integration.
+
 ## 1.0.2 — 2026-07-25
 
 ### Fixed

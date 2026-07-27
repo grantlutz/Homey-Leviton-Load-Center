@@ -106,7 +106,12 @@ We use Leviton's private cloud uninvited. The polite guest gets to stay.
 1. Every release gets a `CHANGELOG.md` entry; versions are bumped in **both**
    `.homeycompose/app.json` and `package.json` (semver: fixes = patch, new cards/capabilities =
    minor, breaking = major — see Article VIII before ever needing major).
-2. User-visible behavior changes update the README and/or `docs/FEATURES.md` in the same PR.
+2. **The changelog has a designated keeper.** [`CHANGELOG.md`](./CHANGELOG.md) is maintained by
+   Claude (the AI assistant working on this repo) under the maintenance policy stated at the top of
+   that file: every user-visible change is logged in the same commit that makes it, collected under
+   an *Unreleased* heading between releases. Contributor PRs should include their own entry; the
+   keeper reconciles wording and placement.
+3. User-visible behavior changes update the README and/or `docs/FEATURES.md` in the same PR.
 
 ## Article XI — Collaboration
 
