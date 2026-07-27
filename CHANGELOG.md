@@ -13,6 +13,14 @@ All notable changes to this project are recorded here, newest first.
 >   fixes = patch, new cards/capabilities = minor, breaking = major.
 > - Entries say what a **user** will notice, not which files changed.
 
+## Unreleased
+
+### Fixed
+- **Current Transformer artwork redrawn** so it actually depicts the device: the driver images now
+  show the clamp face-on around a straight conductor (with hinge, latch, pigtail leads, and current
+  chevrons), and the driver's `icon.svg` — previously a leftover panel-with-bolt graphic — is now a
+  matching clamp-around-wire icon.
+
 ## 1.0.6 — 2026-07-27
 
 First App Store build under the final app id (pending certification; 1.0.5 was consumed

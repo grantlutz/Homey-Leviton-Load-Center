@@ -6,15 +6,16 @@
       <stop offset="1" stop-color="#e2e9ef"/>
     </radialGradient>
     <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#3a4c59"/>
+      <stop offset="0" stop-color="#3f5260"/>
       <stop offset="1" stop-color="#22303a"/>
     </linearGradient>
-    <linearGradient id="cable" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#333c44"/>
+    <linearGradient id="cable" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3a444d"/>
+      <stop offset="0.5" stop-color="#242d34"/>
       <stop offset="1" stop-color="#171e24"/>
     </linearGradient>
     <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
-      <feDropShadow dx="0" dy="18" stdDeviation="26" flood-color="#31424e" flood-opacity="0.38"/>
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#31424e" flood-opacity="0.35"/>
     </filter>
     <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
       <feGaussianBlur stdDeviation="8" result="b"/>
@@ -24,37 +25,41 @@
 
   <rect width="1000" height="1000" fill="url(#bg)"/>
 
-  <!-- conductor cable through the clamp -->
+  <!-- cable, straight through the clamp -->
   <g filter="url(#soft)">
-    <path d="M 315 905 C 390 760 420 640 500 500 C 580 360 615 250 690 110"
-          stroke="url(#cable)" stroke-width="120" fill="none" stroke-linecap="round"/>
-    <path d="M 322 890 C 395 750 428 636 505 498"
-          stroke="#465059" stroke-width="16" fill="none" stroke-linecap="round" opacity="0.7"/>
+    <rect x="440" y="30" width="120" height="940" rx="60" fill="url(#cable)"/>
+    <rect x="462" y="50" width="18" height="900" rx="9" fill="#4a555f" opacity="0.7"/>
   </g>
 
-  <!-- CT clamp ring -->
-  <g filter="url(#soft)">
-    <circle cx="500" cy="500" r="235" fill="none" stroke="url(#ring)" stroke-width="120"/>
-    <!-- hinge & latch details -->
-    <rect x="252" y="452" width="86" height="96" rx="20" fill="#22303a"/>
-    <rect x="664" y="452" width="86" height="96" rx="20" fill="#2b3a45"/>
-    <rect x="686" y="474" width="42" height="52" rx="10" fill="#0098DB"/>
-    <!-- LED -->
-    <circle cx="500" cy="286" r="13" fill="#33c1ff" filter="url(#glow)"/>
+  <!-- current direction chevrons on the cable, above the clamp -->
+  <g stroke="#33c1ff" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
+    <path d="M 468 96 L 500 132 L 532 96"/>
+    <path d="M 468 168 L 500 204 L 532 168"/>
   </g>
 
-  <!-- pigtail leads to a connector -->
+  <!-- pigtail leads from the clamp to the meter connector -->
   <g fill="none" stroke-linecap="round">
-    <path d="M 295 545 C 190 640 165 720 210 830" stroke="#dfe6ec" stroke-width="18"/>
-    <path d="M 305 570 C 215 660 195 730 238 842" stroke="#31424e" stroke-width="18"/>
+    <path d="M 330 750 C 250 830 235 870 260 930" stroke="#dfe6ec" stroke-width="20"/>
+    <path d="M 362 776 C 292 850 280 884 300 942" stroke="#31424e" stroke-width="20"/>
   </g>
-  <rect x="186" y="822" width="88" height="58" rx="12" fill="#31424e"/>
-  <rect x="204" y="838" width="52" height="26" rx="6" fill="#0098DB"/>
+  <rect x="236" y="912" width="110" height="62" rx="14" fill="#31424e"/>
+  <rect x="258" y="928" width="66" height="30" rx="8" fill="#0098DB"/>
 
-  <!-- little current arrow along the cable -->
-  <g stroke="#33c1ff" stroke-width="10" fill="none" stroke-linecap="round" filter="url(#glow)" opacity="0.95">
-    <path d="M 588 330 C 610 288 625 250 650 205"/>
-    <path d="M 628 240 L 650 205 L 658 246"/>
+  <!-- CT clamp ring, face-on around the cable -->
+  <g filter="url(#soft)">
+    <circle cx="500" cy="560" r="250" fill="none" stroke="url(#ring)" stroke-width="130"/>
+    <!-- inner + outer rim lines for depth -->
+    <circle cx="500" cy="560" r="315" fill="none" stroke="#1a252d" stroke-width="6"/>
+    <circle cx="500" cy="560" r="185" fill="none" stroke="#152028" stroke-width="6"/>
+    <!-- hinge (left) -->
+    <rect x="168" y="512" width="90" height="96" rx="22" fill="#22303a"/>
+    <circle cx="213" cy="560" r="16" fill="#4a5a66"/>
+    <!-- latch (right) with blue release clip -->
+    <rect x="742" y="512" width="90" height="96" rx="22" fill="#2b3a45"/>
+    <rect x="766" y="534" width="44" height="52" rx="10" fill="#0098DB"/>
+    <!-- LED -->
+    <circle cx="500" cy="310" r="16" fill="#33c1ff" filter="url(#glow)"/>
   </g>
+
 </svg>
 </body></html>
