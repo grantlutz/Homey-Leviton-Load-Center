@@ -1,8 +1,10 @@
 # Homey Community launch post
 
-Post this in the **Apps** category on https://community.homey.app. The topic doubles as the app's
-permanent support thread — after posting, copy the topic id from the URL into
-`homeyCommunityTopicId` in `.homeycompose/app.json` so the app links back to it.
+**Posted:** the live support thread is
+https://community.homey.app/t/leviton-load-center-unofficial-smart-breaker-monitoring-energy-control/157620
+and its topic id (**157620**) is set as `homeyCommunityTopicId` in `.homeycompose/app.json`, so the
+App Store listing links to it. The draft below is kept for reference — edit the live post, not
+this file.
 
 ---
 

@@ -26,6 +26,8 @@ All notable changes to this project are recorded here, newest first.
 
 ### Changed
 - README: prominent attribution to gtxaspec's original Home Assistant integration.
+- The app now links to its [Homey Community support thread](https://community.homey.app/t/leviton-load-center-unofficial-smart-breaker-monitoring-energy-control/157620)
+  (`homeyCommunityTopicId` 157620) — shown as the Community link on the App Store listing.
 
 ## 1.0.2 — 2026-07-25
 
