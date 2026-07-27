@@ -13,13 +13,14 @@ All notable changes to this project are recorded here, newest first.
 >   fixes = patch, new cards/capabilities = minor, breaking = major.
 > - Entries say what a **user** will notice, not which files changed.
 
-## 1.0.5 — 2026-07-27
+## 1.0.6 — 2026-07-27
 
-First App Store build under the final app id (pending certification).
+First App Store build under the final app id (pending certification; 1.0.5 was consumed
+by the publish flow's mandatory version bump — no separate release).
 
 ### Changed
 - **App identity, before first publication:** the app id is now `io.github.grantlutz.loadcenter`
-  (was `com.leviton.loadcenter`, briefly `io.grantlutz.loadcenter` in the unpublished 1.0.4) and
+  (was `com.leviton.loadcenter`, briefly `io.grantlutz.loadcenter` in unpublished drafts) and
   the display name is **"Leviton Load Center (Unofficial)"** — a reverse-DNS id must use a domain
   the developer controls (`grantlutz.github.io` matches the GitHub repo), and both changes make the
   unofficial status unmistakable. The 1.0.3/1.0.4 draft uploads under earlier ids were abandoned
