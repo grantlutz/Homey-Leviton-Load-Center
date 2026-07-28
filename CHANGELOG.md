@@ -13,9 +13,9 @@ All notable changes to this project are recorded here, newest first.
 >   fixes = patch, new cards/capabilities = minor, breaking = major.
 > - Entries say what a **user** will notice, not which files changed.
 
-## Unreleased
+## 1.0.8 — 2026-07-28
 
-Addresses all points from the App Store certification review of build 2.
+App Store build 3 — addresses all points from the certification review of build 2.
 
 ### Changed
 - **App name is simply "Leviton Load Center"** — the store forbids parentheses in names, and the
