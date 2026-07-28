@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
-  <!-- conductor passing through the clamp -->
-  <rect x="112" y="8" width="32" height="240" rx="16" fill="#2b3a45"/>
-  <!-- current chevron -->
-  <path d="M118 26 l10 12 10-12" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- pigtail to connector -->
-  <path d="M84 196 C 62 216 56 226 60 242" fill="none" stroke="#0098DB" stroke-width="12" stroke-linecap="round"/>
-  <rect x="44" y="236" width="34" height="16" rx="6" fill="#0098DB"/>
-  <!-- CT clamp ring -->
-  <circle cx="128" cy="148" r="66" fill="none" stroke="#0098DB" stroke-width="36"/>
-  <!-- hinge and latch -->
-  <rect x="30" y="134" width="26" height="28" rx="8" fill="#0098DB"/>
-  <rect x="200" y="134" width="26" height="28" rx="8" fill="#0098DB"/>
-  <rect x="206" y="140" width="14" height="16" rx="4" fill="#ffffff"/>
+  <!-- current transformer: clamp ring around a conductor, pigtail lead -->
+  <rect x="118" y="8" width="20" height="240" rx="10" fill="#000"/>
+  <circle cx="128" cy="148" r="64" fill="none" stroke="#000" stroke-width="30"/>
+  <path d="M84 196 C 60 218 54 228 58 246" fill="none" stroke="#000" stroke-width="12" stroke-linecap="round"/>
+  <rect x="42" y="238" width="34" height="16" rx="6" fill="#000"/>
 </svg>

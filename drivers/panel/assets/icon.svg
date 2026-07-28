@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
-  <rect x="48" y="24" width="160" height="208" rx="16" fill="#0098DB"/>
-  <rect x="72" y="52" width="112" height="152" rx="8" fill="#ffffff"/>
-  <g fill="#0098DB">
-    <rect x="86" y="70" width="36" height="20" rx="4"/>
-    <rect x="134" y="70" width="36" height="20" rx="4"/>
-    <rect x="86" y="100" width="36" height="20" rx="4"/>
-    <rect x="134" y="100" width="36" height="20" rx="4"/>
-    <rect x="86" y="130" width="36" height="20" rx="4"/>
-    <rect x="134" y="130" width="36" height="20" rx="4"/>
+  <!-- load center: enclosure with main breaker and two breaker columns -->
+  <rect x="44" y="24" width="168" height="208" rx="20" fill="none" stroke="#000" stroke-width="14"/>
+  <rect x="96" y="48" width="64" height="26" rx="7" fill="#000"/>
+  <g fill="#000">
+    <rect x="76" y="98" width="42" height="20" rx="5"/>
+    <rect x="138" y="98" width="42" height="20" rx="5"/>
+    <rect x="76" y="132" width="42" height="20" rx="5"/>
+    <rect x="138" y="132" width="42" height="20" rx="5"/>
+    <rect x="76" y="166" width="42" height="20" rx="5"/>
+    <rect x="138" y="166" width="42" height="20" rx="5"/>
   </g>
-  <path d="M132 158 l-22 34 h16 l-6 26 26-40 h-16 z" fill="#F5A623"/>
 </svg>

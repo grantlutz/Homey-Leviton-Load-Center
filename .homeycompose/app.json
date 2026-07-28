@@ -7,10 +7,10 @@
     "local"
   ],
   "name": {
-    "en": "Leviton Load Center (Unofficial)"
+    "en": "Leviton Load Center"
   },
   "description": {
-    "en": "Monitor and control Leviton Smart Load Center circuit breakers — per-circuit power, current and energy, remote on/off, and trip/fault alarms — via the My Leviton cloud."
+    "en": "Monitor and control every circuit in your smart electrical panel."
   },
   "category": [
     "energy"

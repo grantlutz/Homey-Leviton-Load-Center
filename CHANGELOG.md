@@ -13,6 +13,29 @@ All notable changes to this project are recorded here, newest first.
 >   fixes = patch, new cards/capabilities = minor, breaking = major.
 > - Entries say what a **user** will notice, not which files changed.
 
+## Unreleased
+
+Addresses all points from the App Store certification review of build 2.
+
+### Changed
+- **App name is simply "Leviton Load Center"** — the store forbids parentheses in names, and the
+  App Store's own developer-badge system already distinguishes community apps, so the
+  "(Unofficial)" suffix is gone from the name. The unofficial status remains stated in the store
+  description and readme.
+- **Store description** is now a one-sentence tagline; the **store readme** (README.txt) is trimmed
+  to two short plain-text paragraphs per the guidelines.
+- **Flow cards:** the trip trigger now reads "The breaker tripped due to [reason]" (no
+  parentheses), with the reason dropdown reworded to fit the sentence (saved Flows keep working —
+  stored values are unchanged). The three bulk-action cards no longer embed the panel picker in
+  their title (it showed as a raw "[[panel]]" placeholder in the store); the picker now renders
+  as a normal argument below the card.
+- **Icons:** the app, Breaker, and Load Center icons were one identical filled blue placeholder.
+  Each is now a unique single-colour vector glyph (bolt-in-panel-door, breaker with toggle, panel
+  with breaker rows, CT clamp) that renders correctly when tinted by the Homey UI.
+- **Driver images are now real product photos on white** (Leviton LB120-ST breaker, LWHEM-2
+  energy monitor, LSMMA current transformers) as required by the store guidelines, replacing the
+  illustrations. The illustrated app-level hero images are unchanged.
+
 ## 1.0.7 — 2026-07-27
 
 App Store build 2 — replaces build 1 for the certification submission.

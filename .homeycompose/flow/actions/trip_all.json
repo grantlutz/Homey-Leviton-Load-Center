@@ -1,8 +1,11 @@
 {
   "id": "trip_all",
-  "title": { "en": "Trip all breakers" },
-  "titleFormatted": { "en": "Trip all breakers on [[panel]]" },
-  "hint": { "en": "Staggered remote-trip of every smart breaker on the selected load center. Gen-1 breakers cannot be re-closed remotely." },
+  "title": {
+    "en": "Trip all breakers"
+  },
+  "hint": {
+    "en": "Staggered remote-trip of every smart breaker on the selected load center. Gen-1 breakers cannot be re-closed remotely."
+  },
   "args": [
     {
       "name": "panel",

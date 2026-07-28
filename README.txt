@@ -1,9 +1,3 @@
-Monitor and control your Leviton Smart Load Center from Homey.
+Leviton Load Center brings your smart electrical panel into Homey. Every smart circuit breaker becomes a device with live power, current, voltage and energy readings, Gen 2 breakers can be switched on and off remotely, and the moment a breaker trips you get an alert that tells you why — ground fault, arc fault, overload or short circuit. Your whole panel appears in Homey Energy as your home's main meter, with every circuit contributing its own share.
 
-See live power, current, voltage and energy for every smart circuit breaker, switch Gen-2 breakers on and off remotely, and get instant alerts when a breaker trips — including the reason (ground fault, arc fault, overload, short circuit).
-
-Supports the Leviton Whole Home Energy Monitor (LWHEM) and the LDATA data hub, smart breakers (Gen 1 and Gen 2), and current transformers. The whole panel appears as your home's main energy meter in Homey Energy, with every circuit as its own device.
-
-Flow highlights: trigger on breaker trips (with reason), power or current thresholds, and offline alerts; switch individual breakers or all of them at once; blink a breaker's locate LED to find it in the panel.
-
-Requirements: a Homey Pro, a My Leviton account, and an LWHEM or LDATA hub installed in your panel. This is an unofficial community app that uses the My Leviton cloud service — it is not affiliated with or endorsed by Leviton, and it needs an internet connection to work.
+You need a Homey Pro, a My Leviton account, and a Leviton load center equipped with an LWHEM or LDATA hub. This is an unofficial community app: it uses the My Leviton cloud service, requires an internet connection, and is not affiliated with or endorsed by Leviton.

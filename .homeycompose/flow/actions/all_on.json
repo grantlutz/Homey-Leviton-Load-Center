@@ -1,8 +1,11 @@
 {
   "id": "all_on",
-  "title": { "en": "Turn all breakers on" },
-  "titleFormatted": { "en": "Turn all breakers on on [[panel]]" },
-  "hint": { "en": "Staggered remote-on of every Gen-2 controllable breaker on the selected load center." },
+  "title": {
+    "en": "Turn all breakers on"
+  },
+  "hint": {
+    "en": "Staggered remote-on of every Gen-2 controllable breaker on the selected load center."
+  },
   "args": [
     {
       "name": "panel",

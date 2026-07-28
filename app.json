@@ -8,10 +8,10 @@
     "local"
   ],
   "name": {
-    "en": "Leviton Load Center (Unofficial)"
+    "en": "Leviton Load Center"
   },
   "description": {
-    "en": "Monitor and control Leviton Smart Load Center circuit breakers — per-circuit power, current and energy, remote on/off, and trip/fault alarms — via the My Leviton cloud."
+    "en": "Monitor and control every circuit in your smart electrical panel."
   },
   "category": [
     "energy"
@@ -117,9 +117,6 @@
         "title": {
           "en": "Turn all breakers off"
         },
-        "titleFormatted": {
-          "en": "Turn all breakers off on [[panel]]"
-        },
         "hint": {
           "en": "Staggered remote-off/trip of every controllable breaker on the selected load center."
         },
@@ -136,9 +133,6 @@
         "title": {
           "en": "Turn all breakers on"
         },
-        "titleFormatted": {
-          "en": "Turn all breakers on on [[panel]]"
-        },
         "hint": {
           "en": "Staggered remote-on of every Gen-2 controllable breaker on the selected load center."
         },
@@ -154,9 +148,6 @@
         "id": "trip_all",
         "title": {
           "en": "Trip all breakers"
-        },
-        "titleFormatted": {
-          "en": "Trip all breakers on [[panel]]"
         },
         "hint": {
           "en": "Staggered remote-trip of every smart breaker on the selected load center. Gen-1 breakers cannot be re-closed remotely."
@@ -251,13 +242,13 @@
       {
         "id": "breaker_tripped",
         "title": {
-          "en": "A breaker tripped"
+          "en": "The breaker tripped"
         },
         "titleFormatted": {
-          "en": "This breaker tripped ([[reason]])"
+          "en": "The breaker tripped due to [[reason]]"
         },
         "hint": {
-          "en": "Fires when this breaker enters a tripped/fault state. Pick a specific reason to filter, or 'Any reason'."
+          "en": "Fires when this breaker enters a tripped/fault state. Pick a specific reason to filter, or 'any reason'."
         },
         "args": [
           {
@@ -275,55 +266,55 @@
               {
                 "id": "any",
                 "label": {
-                  "en": "Any reason"
+                  "en": "any reason"
                 }
               },
               {
                 "id": "software_trip",
                 "label": {
-                  "en": "Remote trip"
+                  "en": "a remote trip"
                 }
               },
               {
                 "id": "gfci_fault",
                 "label": {
-                  "en": "Ground fault (GFCI)"
+                  "en": "a ground fault"
                 }
               },
               {
                 "id": "afci_fault",
                 "label": {
-                  "en": "Arc fault (AFCI)"
+                  "en": "an arc fault"
                 }
               },
               {
                 "id": "afci_miswire",
                 "label": {
-                  "en": "AFCI miswire"
+                  "en": "an AFCI miswire"
                 }
               },
               {
                 "id": "overcurrent_trip",
                 "label": {
-                  "en": "Overcurrent"
+                  "en": "overcurrent"
                 }
               },
               {
                 "id": "overload_trip",
                 "label": {
-                  "en": "Overload"
+                  "en": "an overload"
                 }
               },
               {
                 "id": "short_circuit_trip",
                 "label": {
-                  "en": "Short circuit"
+                  "en": "a short circuit"
                 }
               },
               {
                 "id": "upstream_fault",
                 "label": {
-                  "en": "Upstream fault"
+                  "en": "an upstream fault"
                 }
               }
             ]

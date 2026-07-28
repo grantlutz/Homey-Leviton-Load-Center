@@ -1,8 +1,11 @@
 {
   "id": "all_off",
-  "title": { "en": "Turn all breakers off" },
-  "titleFormatted": { "en": "Turn all breakers off on [[panel]]" },
-  "hint": { "en": "Staggered remote-off/trip of every controllable breaker on the selected load center." },
+  "title": {
+    "en": "Turn all breakers off"
+  },
+  "hint": {
+    "en": "Staggered remote-off/trip of every controllable breaker on the selected load center."
+  },
   "args": [
     {
       "name": "panel",
