@@ -1,0 +1,21 @@
+{
+  "id": "auth_failed",
+  "title": {
+    "en": "Leviton sign-in failed"
+  },
+  "hint": {
+    "en": "Fires once when the app can no longer sign in to My Leviton automatically (password changed, two-factor code required, or \"Stay signed in\" is off). Open any Leviton device and tap Repair to sign in again."
+  },
+  "tokens": [
+    {
+      "name": "error",
+      "type": "string",
+      "title": {
+        "en": "Error"
+      },
+      "example": {
+        "en": "Leviton requires a two-factor code"
+      }
+    }
+  ]
+}

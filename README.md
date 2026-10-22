@@ -121,10 +121,16 @@ paired devices, settings, and Flows are preserved across reinstalls.
 
 > 🔐 Your credentials are sent only to Leviton's cloud (`my.leviton.com`) and the session token is
 > stored on your own Homey. Nothing is sent anywhere else. Never paste your credentials anywhere else.
+> With **Stay signed in** ticked (the default) your password is also saved on your Homey — unencrypted,
+> because Homey offers apps no encrypted storage — so the app can renew the session by itself.
+> Untick it to store only the token.
 
-**Password changed / token expired?** Devices go unavailable with an authentication message. Long-press
-the device → **Settings → Maintenance → Repair**, and sign in again. All devices recover at once — the
-app uses one shared session.
+**Session expiry.** With *Stay signed in* on, the app renews the Leviton session automatically
+(about a day before it expires, and whenever Leviton rejects the token). If it can't — password
+changed, Leviton asks for a 2FA code, or *Stay signed in* is off — every device goes unavailable with
+*"Leviton sign-in expired - open any breaker and tap Repair"*, a timeline notification is posted, and
+the **Leviton sign-in failed** Flow trigger fires once. Open any Leviton device → **Settings →
+Maintenance → Repair** and sign in again. All devices recover at once — the app uses one shared session.
 
 ## Configuration (app settings)
 
@@ -169,7 +175,8 @@ All standard capability triggers (`onoff` changed, power changed, alarms) are av
 |---|---|
 | **"Waiting for authentication" during pairing** | Fixed in v1.0.1 — earlier builds showed a Homey *Continue* button that skipped the login. Update the app (`git pull && homey app install`). |
 | **Login fails with correct credentials** | If 2FA is enabled a code field appears after the first attempt — that first "failure" is the cloud sending you a code. Enter it and sign in again. |
-| **Devices unavailable, "authentication" error** | Password changed or token revoked. Device → Settings → Maintenance → **Repair**, sign in again. |
+| **Devices unavailable, "Leviton sign-in expired"** | Password changed, 2FA code required, or *Stay signed in* off. Any device → Settings → Maintenance → **Repair**, sign in again — all devices recover. |
+| **Repair shows a blank window** | Fixed in v1.0.9 (the repair view file was missing). Update the app. |
 | **Values freeze for ~1–2 minutes at a time** | Leviton's cloud kills WebSockets hourly; the app reconnects automatically (55-min proactive cycle + watchdog) and the 2-min REST poll bridges gaps. Sustained gaps → check the app's log (`homey app run` build) or your internet. |
 | **On/off tile doesn't update immediately after switching** | Leviton doesn't echo remote commands over the push socket; the app updates optimistically and reconciles on the next poll. |
 | **Energy (kWh) jumps or resets** | The app filters the cloud's "delta vs. lifetime" ambiguity, but a hub firmware reset can genuinely reset lifetime counters. Homey Insights keeps its own history. |

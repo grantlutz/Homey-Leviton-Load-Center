@@ -15,6 +15,9 @@
   }
   .lv-btn:disabled { background: #b8bec4; cursor: default; }
   .lv-hint { font-size: 12px; color: #888; margin-top: 12px; text-align: center; }
+  .lv-remember { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 4px; font-size: 14px; color: #333; }
+  .lv-remember input { margin-top: 2px; width: 18px; height: 18px; flex: none; }
+  .lv-remember-hint { font-size: 12px; color: #888; margin: 0 0 12px 26px; }
 </style>
 
 <div class="lv-wrap">
@@ -31,9 +34,20 @@
     <input id="lv-code" type="text" inputmode="numeric" autocomplete="one-time-code" placeholder="123456" />
   </div>
 
+  <label class="lv-remember">
+    <input id="lv-remember" type="checkbox" checked />
+    <span>Stay signed in</span>
+  </label>
+  <div class="lv-remember-hint">
+    Saves your password on this Homey so the app can sign back in automatically when Leviton's
+    session expires. Homey has no encrypted storage for apps, so it is kept unencrypted in the
+    app's settings. Untick to keep only the session token; you will then need to Repair after it expires.
+    If Leviton asks for a two-factor code, a Repair is always needed.
+  </div>
+
   <div id="lv-error" class="lv-error"></div>
   <button id="lv-submit" class="lv-btn" data-i18n="pair.signin" disabled>Sign in</button>
-  <div class="lv-hint">Your credentials are sent only to Leviton's cloud and stored on your Homey.</div>
+  <div class="lv-hint">Your e-mail and password are sent only to Leviton's cloud (my.leviton.com). The session token is stored on your Homey.</div>
 </div>
 
 <script type="application/javascript">
@@ -41,6 +55,7 @@
   const passEl = document.getElementById('lv-password');
   const codeField = document.getElementById('lv-code-field');
   const codeEl = document.getElementById('lv-code');
+  const rememberEl = document.getElementById('lv-remember');
   const errEl = document.getElementById('lv-error');
   const btn = document.getElementById('lv-submit');
   const btnLabel = btn.textContent;
@@ -63,7 +78,11 @@
     setError('');
     busy = true;
     refreshButton();
-    const payload = { username: emailEl.value.trim(), password: passEl.value };
+    const payload = {
+      username: emailEl.value.trim(),
+      password: passEl.value,
+      remember: rememberEl.checked,
+    };
     if (needCode) payload.code = codeEl.value.trim();
 
     Homey.emit('login', payload, (err, result) => {
@@ -91,6 +110,15 @@
   [emailEl, passEl, codeEl].forEach((el) => {
     el.addEventListener('input', refreshButton);
     el.addEventListener('keydown', (e) => { if (e.key === 'Enter') submit(); });
+  });
+
+  // Pre-fill the e-mail used last time (the password is never sent back to the view).
+  Homey.emit('get_login_defaults', null, (err, defaults) => {
+    if (!err && defaults && defaults.email && !emailEl.value) {
+      emailEl.value = defaults.email;
+      refreshButton();
+      passEl.focus();
+    }
   });
 
   refreshButton();

@@ -164,8 +164,14 @@ control lock, which also applies instantly to the on/off tiles).
   the login screen. The session token lives only on your Homey.
 - **2FA supported.** If your account has two-factor auth, a code field appears after the first
   sign-in attempt.
-- **Repair flow.** Password changed or token revoked? Devices go unavailable → long-press any of
-  them → **Settings → Maintenance → Repair** → sign in. All devices recover at once.
+- **Stay signed in (opt-in, default on).** Saves the password on the Homey (unencrypted — Homey has
+  no encrypted app storage) so the app renews the session silently: ~24 h before expiry, and on any
+  401 (one re-login, then the request is retried once).
+- **Repair flow.** Password changed, 2FA code required, or *Stay signed in* off? Devices go
+  unavailable with "Leviton sign-in expired - open any breaker and tap Repair", a timeline
+  notification is posted and the app-level **Leviton sign-in failed** trigger (token: `error`)
+  fires once. Long-press any device → **Settings → Maintenance → Repair** → sign in. All devices
+  recover at once.
 
 ## How data flows (behavior you'll observe)
 
