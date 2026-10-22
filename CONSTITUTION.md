@@ -51,7 +51,8 @@ We use Leviton's private cloud uninvited. The polite guest gets to stay.
 ## Article IV — Privacy is structural, not a policy
 
 1. Credentials go to **Leviton's cloud only**; the session token is stored **only on the user's
-   Homey** (app settings). No third-party endpoint, ever.
+   Homey** (app settings). The password is stored there too **only if the user opts in** ("Stay
+   signed in"), with an honest note that Homey app storage is unencrypted. No third-party endpoint, ever.
 2. **No telemetry, analytics, or phone-home** of any kind.
 3. Logs must not contain passwords or tokens. Debug output that could leak a credential is a bug.
 

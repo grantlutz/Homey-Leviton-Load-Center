@@ -13,6 +13,32 @@ All notable changes to this project are recorded here, newest first.
 >   fixes = patch, new cards/capabilities = minor, breaking = major.
 > - Entries say what a **user** will notice, not which files changed.
 
+## 1.0.9 — 2026-10-22
+
+Sign-in reliability. Not an App Store release (developer install only).
+
+### Fixed
+- **Repair no longer opens a blank window.** The repair sign-in screen was missing from every
+  driver; Repair now shows the Leviton sign-in (with 2FA) and closes when done.
+- **Adding more devices no longer skips the sign-in screen with an expired session** — the stored
+  session is checked first.
+- Leviton "rate limited" (429) and "forbidden / not found" (403/404) replies no longer count as a
+  sign-in failure, so they can't knock the live connection offline.
+
+### Added
+- **Stay signed in** checkbox on the sign-in screen (on by default). Keeps your password on the
+  Homey (unencrypted — Homey has no encrypted app storage) so the app renews the Leviton session
+  automatically: about a day before it expires, at startup, on reconnect, and whenever Leviton
+  rejects the token. Untick it to store only the token.
+- When automatic sign-in is impossible (password changed, 2FA code needed, or *Stay signed in*
+  off) every device shows "Leviton sign-in expired - open any breaker and tap Repair", a timeline
+  notification is posted, and the new **Leviton sign-in failed** Flow trigger fires once.
+  Polling pauses until you sign in again.
+
+### Changed
+- One Repair on any device signs in for the whole app and brings **all** devices back.
+- Sign-in error messages are clearer (wrong password, bad 2FA code, too many attempts, no internet).
+
 ## 1.0.8 — 2026-07-28
 
 App Store build 3 — addresses all points from the certification review of build 2.

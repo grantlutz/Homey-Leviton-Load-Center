@@ -80,7 +80,7 @@ changing it orphans everyone's devices.
 ## 6. Things specific to this app to keep in mind
 
 - **Credentials handling**: the app stores the Leviton session token in app settings on the user's
-  own Homey; nothing leaves the device except calls to `my.leviton.com` / `socket.cloud.leviton.com`.
+  own Homey (plus the password, unencrypted, only if the user ticks *Stay signed in*); nothing leaves the device except calls to `my.leviton.com` / `socket.cloud.leviton.com`.
   Say this in the listing — reviewers and users both care.
 - **`platforms: ["local"]`** is already set (Homey Pro only) — correct, since the app opens an
   outbound WebSocket and Homey Cloud doesn't allow arbitrary sockets.

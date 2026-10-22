@@ -167,4 +167,8 @@ t('breakerLeg unknown position', () => {
   assert.strictEqual(N.breakerLeg(null, 1), null);
 });
 
-console.log(`\n${passed} tests passed.`);
+// ---- auth / session renewal (async, mocked network) -------------------
+require('./auth')().then(({ passed: authPassed, failed }) => {
+  if (failed) process.exitCode = 1;
+  console.log(`\n${passed + authPassed} tests passed${failed ? `, ${failed} failed` : ''}.`);
+});
